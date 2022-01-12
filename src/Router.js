@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Nav from './components/Nav/Nav';
-import Default from './Default';
+import Default from './pages/Default';
 import LoginJu from './pages/jumiLee/Login/Login';
 import LoginKyeom from './pages/kyeom/Login/Login';
 import LoginShinung from './pages/sinung/Login/Login';
@@ -14,7 +13,6 @@ import MainJu from './pages/jumiLee/Main/Main';
 function Router() {
   return (
     <BrowserRouter>
-      <Nav />
       <Routes>
         <Route path="/" element={<Default />} />
         <Route path="/login-Ju" element={<LoginJu />} />

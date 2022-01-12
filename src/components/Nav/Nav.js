@@ -1,5 +1,6 @@
 import React from 'react';
 import './Nav.scss';
+import '../../styles/variables.scss';
 
 const Button = ({ className, src, alt }) => {
   return <input type="image" className={className} src={src} alt={alt} />;
