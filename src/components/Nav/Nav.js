@@ -1,6 +1,10 @@
 import React from 'react';
 import './Nav.scss';
 
+const Button = ({ className, src, alt }) => {
+  return <input type="image" className={className} src={src} alt={alt} />;
+};
+
 const Nav = () => {
   return (
     <div className="Nav">
@@ -9,20 +13,20 @@ const Nav = () => {
           <h1 className="logo">westagram</h1>
           <div className="search">
             <input type="text" placeholder="검색" />
-            <i className="fas fa-search"></i>
+            <i className="fas fa-search" />
           </div>
           <div className="menu-wrapper">
-            <button
+            <Button
               className="menu"
               alt="explore button"
               src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
             />
-            <button
+            <Button
               className="menu"
               alt="heart button"
               src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
             />
-            <button
+            <Button
               className="menu"
               alt="profile button"
               src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png"
