@@ -1,0 +1,206 @@
+/* Feeds */
+.feeds {
+  width: 600px;
+  margin-top: 140px;
+  border: 1px solid #e5e5e5;
+  background-color: white;
+}
+
+.main--right {
+  width: 300px;
+  height: 500px;
+  margin-top: 140px;
+  margin-left: 25px;
+}
+
+/* Feed */
+.feed .feed--user {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  height: 55px;
+}
+
+.feed--user--info {
+  display: flex;
+  align-items: center;
+}
+
+.feed--user--info img {
+  width: 40px;
+  border-radius: 50%;
+  margin: 0 15px 0 10px;
+}
+
+.feed--user .etc {
+  width: 15px;
+  margin-right: 10px;
+}
+
+.feed--user--name {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Feed image */
+.feed .image {
+  width: 600px;
+  height: 600px;
+  margin-bottom: -4px;
+}
+
+/* Feed evaluation */
+.feed .evaluation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+}
+
+.feed .evaluation div img {
+  width: 23px;
+  margin-left: 13px;
+  cursor: pointer;
+}
+
+.feed .evaluation .bookmark {
+  width: 23px;
+  margin-left: 12px;
+  cursor: pointer;
+  margin-right: 13px;
+}
+
+/* Feed like */
+.feed .howmany {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  padding-bottom: 10px;
+}
+
+.feed .howmany img {
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid #e5e5e5;
+  margin: 0 5px 0 13px;
+  cursor: pointer;
+}
+
+.feed .howmany a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+/* Content */
+.feed .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 2px 0;
+  background-color: white;
+}
+
+.feeds .content--user,
+.comment--user {
+  margin: 0 0 0 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Comment */
+.feed .comments {
+  padding: 0;
+  margin: 0 0 5px 0;
+}
+
+.feed .comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 2px 0;
+  background-color: white;
+  list-style: none;
+  position: relative;
+}
+
+.feed .comment div {
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
+.feed .comment .comment--text {
+  margin: 0 0 0 5px;
+  width: 370px;
+  word-wrap: break-word;
+}
+
+.feed .comment .comment--delete {
+  width: 30px;
+  margin: 0;
+  font-size: 14px;
+  color: #a1a1a1;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  right: 43px;
+}
+
+.feed .comment .like {
+  width: 22px;
+  color: #a1a1a1;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.feed .comment .liked {
+  width: 22px;
+  color: #d24855;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.feed .comment .none {
+  display: none;
+}
+
+/* Comment input */
+.feeds .add {
+  display: flex;
+  position: relative;
+}
+
+.feeds .add input {
+  width: 100%;
+  padding: 20px 15px;
+  border: none;
+  font-size: 16px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.feeds .add input::placeholder {
+  color: #949494;
+}
+
+.feeds .add div {
+  position: absolute;
+  top: 5px;
+  right: 1px;
+  cursor: pointer;
+}
+
+.feeds .add--btn {
+  color: #2e91ef;
+  opacity: 0.5;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  display: inline-block;
+  text-align: center;
+  background-color: white;
+}
