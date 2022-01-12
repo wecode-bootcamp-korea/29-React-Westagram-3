@@ -7,19 +7,17 @@ import LoginSinung from './pages/sinung/Login/Login';
 import LoginSu from './pages/sunyeongSin/Login/Login';
 
 function Router() {
-    return (
-
-        <BrowserRouter>
-            <Routes>
-                <Route path='/' element={<Default />} />
-                <Route path='/login-Ju' element={<LoginJu />} />
-                <Route path='/login-Kyeom' element={<LoginKyeom />} />
-                <Route path='/login-Sinung' element={<LoginSinung />} />
-                <Route path='/login-su' element={<LoginSu />} />
-            </Routes>
-        </BrowserRouter>
-
-    );
-};
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Default />} />
+        <Route path="/login-Ju" element={<LoginJu />} />
+        <Route path="/login-Kyeom" element={<LoginKyeom />} />
+        <Route path="/login-Sinung" element={<LoginSinung />} />
+        <Route path="/login-su" element={<LoginSu />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
 export default Router;
