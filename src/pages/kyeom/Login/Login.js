@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Login = () => {
+const LoginKyeom = () => {
   return <div />;
 };
 
-export default Login;
+export default LoginKyeom;

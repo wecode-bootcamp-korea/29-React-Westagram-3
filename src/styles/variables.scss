@@ -1,0 +1,17 @@
+$gray1: #fafafa;
+$gray2: #dbdbdb;
+$desktop-nav-height: 60px;
+
+%logo {
+  font-family: 'Lobster', cursive;
+  margin: 0;
+}
+
+@mixin wrapper-width {
+  width: 100%;
+  max-width: 935px;
+}
+
+@mixin border-gray {
+  border: 1px solid $gray2;
+}
