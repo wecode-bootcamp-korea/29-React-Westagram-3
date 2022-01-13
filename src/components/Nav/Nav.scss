@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/common.scss';
 
 /* nav */
 .Nav {
@@ -26,7 +26,7 @@
 
       .logo {
         @extend %logo;
-        font-size: 2.5rem;
+        font-size: 25px;
       }
 
       /* 검색창 */
@@ -49,11 +49,11 @@
 
         i.fa-search {
           position: absolute;
-          top: 10px;
+          top: 50%;
           left: 12px;
-          width: 8px;
-          height: 8px;
+          transform: translateY(-50%);
           color: $gray2;
+          font-size: 14px;
         }
       }
 
