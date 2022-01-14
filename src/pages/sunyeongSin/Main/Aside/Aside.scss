@@ -1,0 +1,67 @@
+aside {
+  position: fixed;
+  width: 20%;
+  top: 8vh;
+  right: 20vw;
+
+  .aside-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 5px;
+  }
+
+  .aside-story {
+    padding: 5px 20px;
+    border: 2px #ebebeb solid;
+  }
+
+  .aside-story > p {
+    margin: 10px 0;
+    color: gray;
+  }
+
+  .aside-story-box {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  .profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .aside-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+
+  .aside-img-owner > p {
+    margin: 0px;
+  }
+
+  .aside-recommendation {
+    margin-top: 20px;
+    padding: 15px 20px;
+    border: 2px #ebebeb solid;
+  }
+
+  .aside-recommendation > p {
+    color: gray;
+  }
+
+  .aside-recommendation-box {
+    display: flex;
+    margin-top: 10px;
+  }
+}
+/* 
+@media(max-width:1500px) { 
+    aside {  
+        display:none;  
+    } 
+} */
