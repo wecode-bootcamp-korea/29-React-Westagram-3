@@ -1,55 +1,74 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect, forwardRef } from 'react';
 import Nav, { Button } from '../../../components/Nav/Nav';
 import './Main.scss';
 
-const UploadedComment = ({ id, comment }) => {
-  return (
-    <div className="uploaded-comment-wrapper">
-      <div className="name">{id}</div>
-      <div className="uploaded-comment">{comment}</div>
-    </div>
-  );
-};
+const UploadedComment = forwardRef(
+  ({ id, comment, commentData, setCommentData, idx }) => {
+    const [heart, setHeart] = useState('far');
+    const handleLike = () => {
+      heart === 'far' ? setHeart('fas') : setHeart('far');
+    };
+
+    const deleteComment = idx => {
+      setCommentData(cur => cur.filter(ele => ele.idx !== idx));
+      // localStorage.setItem('idAndComment', JSON.stringify(commentData));
+    };
+    return (
+      <div className="uploaded-comment-wrapper">
+        <div className="name">{id}</div>
+        <div className="uploaded-comment">{comment}</div>
+        <button className="delete" onClick={() => deleteComment(idx)}>
+          삭제
+        </button>
+        <div className="like">
+          <i className={`${heart} fa-heart`} onClick={handleLike} />
+        </div>
+      </div>
+    );
+  }
+);
 
 const Comment = () => {
-  const [count, setCount] = useState(0);
-  const commentRef = useRef();
-  const commentData = localStorage.getItem('idAndComment')
-    ? JSON.parse(localStorage.getItem('idAndComment'))
-    : [];
-  let newComment = [];
+  const [commentData, setCommentData] = useState(
+    localStorage.getItem('idAndComment')
+      ? JSON.parse(localStorage.getItem('idAndComment'))
+      : []
+  );
+  const inputRef = useRef();
+  const btnRef = useRef();
   const onPost = event => {
     event.preventDefault();
-    setCount(cur => ++cur);
 
     const id = sessionStorage.getItem('id');
-    const comment = commentRef.current.value;
-    commentRef.current.value = null;
+    const comment = inputRef.current.value;
+    inputRef.current.value = null;
+    btnRef.current.disabled = true;
 
-    newComment.push({ id: id, comment: comment });
-    localStorage.setItem(
-      'idAndComment',
-      JSON.stringify(commentData.concat(newComment))
-    );
+    setCommentData(cur => [
+      ...cur,
+      { id: id, comment: comment, idx: Math.random() },
+    ]);
+    // localStorage.setItem('idAndComment', JSON.stringify(commentData));
+  };
+  useEffect(() => {
+    localStorage.setItem('idAndComment', JSON.stringify(commentData));
+  }, [commentData]);
+
+  const handleBtn = () => {
+    btnRef.current.disabled = !inputRef.current.value;
   };
 
   return (
     <>
       <section className="uploaded-comment">
-        {newComment.map((data, index) => (
+        {commentData.map(data => (
           <UploadedComment
             id={data.id}
             comment={data.comment}
-            key={index}
-            count={count}
-          />
-        ))}
-        {commentData.map((data, index) => (
-          <UploadedComment
-            id={data.id}
-            comment={data.comment}
-            key={index}
-            count={count}
+            key={data.idx}
+            idx={data.idx}
+            commentData={commentData}
+            setCommentData={setCommentData}
           />
         ))}
       </section>
@@ -58,12 +77,12 @@ const Comment = () => {
           <input
             className="comment"
             type="textarea"
-            name="comment"
             placeholder="댓글 달기…"
             autoComplete="off"
-            ref={commentRef}
+            ref={inputRef}
+            onInput={handleBtn}
           />
-          <button type="submit" name="submit">
+          <button type="submit" ref={btnRef} disabled>
             게시
           </button>
         </form>

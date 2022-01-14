@@ -158,23 +158,25 @@ section.uploaded-comment {
       flex-grow: 1;
       overflow-wrap: break-word;
     }
+
+    .delete {
+      all: unset;
+      margin-right: 8px;
+      color: $gray3;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .like {
+      font-size: 12px;
+      cursor: pointer;
+
+      i {
+        vertical-align: middle;
+      }
+    }
   }
-}
-
-.like-comment {
-  width: 12px;
-  height: 12px;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.delete-comment {
-  all: unset;
-  margin-right: 8px;
-  color: $gray3;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
 }
 
 /* 댓글 달기 */
