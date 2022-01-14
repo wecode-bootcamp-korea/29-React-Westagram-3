@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import './Section.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faHome,
-  faPlane,
-  faPlusSquare,
-  faCompass,
   faHeart,
   faComment,
   faShareSquare,
@@ -40,8 +36,7 @@ const Section = () => {
   };
 
   const removeComment = key => {
-    const comment = commentBox.filter(e => e.key !== key);
-    setCommentBox(comment);
+    setCommentBox(commentBox.filter(e => e.key !== key));
   };
   return (
     <section className="feed">
@@ -54,12 +49,12 @@ const Section = () => {
           />
           <span>su__cozy</span>
         </div>
-        <a
+        <p
           className="border-none background-none"
-          style={{ fontSize: '25px', marginRight: '5px' }}
+          style={{ fontSize: '20px', marginRight: '5px' }}
         >
           ...
-        </a>
+        </p>
       </div>
 
       <div className="feed-img-box">

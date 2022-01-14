@@ -2,16 +2,7 @@ import React from 'react';
 import './Comment.scss';
 import '../../../../../../styles/common.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faHome,
-  faPlane,
-  faPlusSquare,
-  faCompass,
-  faHeart,
-  faComment,
-  faShareSquare,
-  faBox,
-} from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react/cjs/react.development';
 
 const Comment = ({ data, comment, remove }) => {
