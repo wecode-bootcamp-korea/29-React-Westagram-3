@@ -13,11 +13,25 @@ const LoginShinung = () => {
   const [id, setId] = useState('');
   const handleIdInput = e => {
     setId(e.target.value);
+    handleBtn();
   };
 
   const [pw, setPw] = useState('');
   const handlePwInput = e => {
-    setId(e.target.value);
+    setPw(e.target.value);
+    handleBtn();
+  };
+
+  const [btn, setBtn] = useState(false);
+
+  const handleBtn = () => {
+    const regEmail =
+      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+    if (regEmail.test(id) && pw.length >= 4) {
+      setBtn(true);
+    } else {
+      setBtn(false);
+    }
   };
 
   return (
@@ -43,9 +57,24 @@ const LoginShinung = () => {
               className="login--password"
               onChange={handlePwInput}
             />
-            <button className="login--button" onClick={goToMain}>
-              로그인
-            </button>
+            {btn ? (
+              <button
+                style={{ opacity: 1 }}
+                className="login--button"
+                onClick={goToMain}
+              >
+                로그인
+              </button>
+            ) : (
+              <button
+                style={{ opacity: 0.5 }}
+                className="login--button"
+                onClick={goToMain}
+              >
+                로그인
+              </button>
+            )}
+
             <p className="login--notice" />
             <div className="separate">
               <div className="separate--line" />
