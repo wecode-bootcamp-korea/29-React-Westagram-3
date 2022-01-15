@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react/cjs/react.development';
 import './Login.scss';
 
 const LoginShinung = () => {
@@ -7,6 +8,16 @@ const LoginShinung = () => {
 
   const goToMain = () => {
     navigate('/main-shinung');
+  };
+
+  const [id, setId] = useState('');
+  const handleIdInput = e => {
+    setId(e.target.value);
+  };
+
+  const [pw, setPw] = useState('');
+  const handlePwInput = e => {
+    setId(e.target.value);
   };
 
   return (
@@ -24,23 +35,25 @@ const LoginShinung = () => {
               type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
               className="login--id"
+              onChange={handleIdInput}
             />
             <input
               type="password"
               placeholder="비밀번호"
               className="login--password"
+              onChange={handlePwInput}
             />
             <button className="login--button" onClick={goToMain}>
               로그인
             </button>
-            <p className="login--notice"></p>
+            <p className="login--notice" />
             <div className="separate">
-              <div className="separate--line"></div>
+              <div className="separate--line" />
               <p className="separate--text">또는</p>
-              <div className="separate--line"></div>
+              <div className="separate--line" />
             </div>
             <button className="login--facebook">
-              <img alt="facebook" src={'/images/shinung/facebook.svg'} />
+              <img alt="facebook" src="/images/shinung/facebook.svg" />
               <p>Facebook으로 로그인</p>
             </button>
             <p className="forget--password">비밀번호를 잊으셨나요?</p>
@@ -58,12 +71,12 @@ const LoginShinung = () => {
             <div>
               <img
                 alt="app-store"
-                src={'/images/shinung/appstore.png'}
+                src="/images/shinung/appstore.png"
                 className="download--app-store"
               />
               <img
                 alt="google-play"
-                src={'/images/shinung/googleplay.png'}
+                src="/images/shinung/googleplay.png"
                 className="download--google-play"
               />
             </div>
