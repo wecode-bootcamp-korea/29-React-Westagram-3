@@ -1,32 +1,26 @@
-import React, { useState, useRef, useEffect, forwardRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Nav, { Button } from '../../../components/Nav/Nav';
 import './Main.scss';
 
-const UploadedComment = forwardRef(
-  ({ id, comment, commentData, setCommentData, idx }) => {
-    const [heart, setHeart] = useState('far');
-    const handleLike = () => {
-      heart === 'far' ? setHeart('fas') : setHeart('far');
-    };
+const UploadedComment = ({ id, comment, deleteComment, idx }) => {
+  const [heart, setHeart] = useState('far');
+  const handleLike = () => {
+    heart === 'far' ? setHeart('fas') : setHeart('far');
+  };
 
-    const deleteComment = idx => {
-      setCommentData(cur => cur.filter(ele => ele.idx !== idx));
-      // localStorage.setItem('idAndComment', JSON.stringify(commentData));
-    };
-    return (
-      <div className="uploaded-comment-wrapper">
-        <div className="name">{id}</div>
-        <div className="uploaded-comment">{comment}</div>
-        <button className="delete" onClick={() => deleteComment(idx)}>
-          삭제
-        </button>
-        <div className="like">
-          <i className={`${heart} fa-heart`} onClick={handleLike} />
-        </div>
+  return (
+    <div className="uploaded-comment-wrapper">
+      <div className="name">{id}</div>
+      <div className="uploaded-comment">{comment}</div>
+      <button className="delete" onClick={() => deleteComment(idx)}>
+        삭제
+      </button>
+      <div className="like">
+        <i className={`${heart} fa-heart`} onClick={handleLike} />
       </div>
-    );
-  }
-);
+    </div>
+  );
+};
 
 const Comment = () => {
   const [commentData, setCommentData] = useState(
@@ -48,7 +42,6 @@ const Comment = () => {
       ...cur,
       { id: id, comment: comment, idx: Math.random() },
     ]);
-    // localStorage.setItem('idAndComment', JSON.stringify(commentData));
   };
   useEffect(() => {
     localStorage.setItem('idAndComment', JSON.stringify(commentData));
@@ -56,6 +49,10 @@ const Comment = () => {
 
   const handleBtn = () => {
     btnRef.current.disabled = !inputRef.current.value;
+  };
+
+  const deleteComment = idx => {
+    setCommentData(cur => cur.filter(ele => ele.idx !== idx));
   };
 
   return (
@@ -67,8 +64,7 @@ const Comment = () => {
             comment={data.comment}
             key={data.idx}
             idx={data.idx}
-            commentData={commentData}
-            setCommentData={setCommentData}
+            deleteComment={deleteComment}
           />
         ))}
       </section>
