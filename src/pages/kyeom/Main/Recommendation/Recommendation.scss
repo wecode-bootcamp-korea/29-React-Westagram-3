@@ -1,0 +1,38 @@
+@import '../Main.scss';
+
+/* 회원님을 위한 추천 */
+.recommendation-wrapper {
+  padding-top: 12px;
+
+  .recommendation-header {
+    @include flex-justify-between;
+    font-weight: 600;
+    color: $gray3;
+
+    button {
+      font-size: 12px;
+    }
+  }
+
+  .recommendation-section {
+    padding: 8px 0 8px 4px;
+
+    .Recommendation {
+      @include flex-justify-between;
+      padding: 8px 0;
+
+      .profile-img {
+        @include profile-img(32px);
+      }
+
+      .name {
+        flex-grow: 1;
+        margin-left: 8px;
+      }
+
+      button {
+        @include button-blue(12px);
+      }
+    }
+  }
+}

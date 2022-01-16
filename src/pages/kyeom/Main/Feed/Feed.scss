@@ -1,0 +1,81 @@
+@import '../Main.scss';
+
+.Feed {
+  margin-right: 28px;
+
+  .feed-wrapper {
+    @include border-gray;
+    max-width: 614px;
+    background-color: white;
+
+    section:not(.feed-img) {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+
+    .feed-bar {
+      @include flex-justify-between;
+      padding: 14px 16px;
+
+      header {
+        @include flex-justify-between;
+      }
+
+      .profile-img {
+        @include profile-img(36px);
+        margin-right: 14px;
+      }
+    }
+
+    .button {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+/* 좋아요, 댓글, 공유, 저장된 항목 버튼 */
+.button-wrapper {
+  @include flex-justify-between;
+  padding: 8px 16px;
+
+  .button-left {
+    @include flex-justify-between;
+  }
+
+  .button {
+    margin: 8px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .fa-heart {
+    padding-top: 2px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+}
+
+/* 좋아요 알림 메세지 */
+.message {
+  margin-bottom: 12px;
+
+  span {
+    font-weight: 600;
+  }
+}
+
+/* 피드 내용 */
+section.content {
+  margin-bottom: 12px;
+
+  .name {
+    margin-right: 8px;
+  }
+}

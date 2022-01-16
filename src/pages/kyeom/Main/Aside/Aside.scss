@@ -1,0 +1,35 @@
+@import '../Main.scss';
+
+/* aside */
+.Aside {
+  position: fixed;
+  top: (32px + $desktop-nav-height);
+  width: 293px;
+
+  .user-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 18px auto 10px;
+
+    .user-img {
+      @include profile-img(64px);
+    }
+
+    .user-profile {
+      flex-grow: 1;
+      margin-left: 12px;
+
+      .name {
+        margin-bottom: 4px;
+
+        & + div {
+          color: $gray3;
+        }
+      }
+    }
+
+    button {
+      @include button-blue(12px);
+    }
+  }
+}
