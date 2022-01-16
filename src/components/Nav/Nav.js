@@ -1,20 +1,28 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import './Nav.scss';
-import '../../styles/variables.scss';
 
 const Button = ({ className, src, alt }) => {
   return <input type="image" className={className} src={src} alt={alt} />;
 };
 
-const Nav = () => {
-  const iRef = useRef();
+const Search = () => {
+  const [searchIcon, setSearchIcon] = useState('');
   const onFocus = () => {
-    iRef.current.style.display = 'none';
+    setSearchIcon(' hidden');
   };
   const onBlur = () => {
-    iRef.current.style.display = 'inline-block';
+    setSearchIcon('');
   };
 
+  return (
+    <div className="Search">
+      <input type="text" placeholder="검색" onFocus={onFocus} onBlur={onBlur} />
+      <i className={`fas fa-search${searchIcon}`} />
+    </div>
+  );
+};
+
+const Nav = () => {
   const buttonData = [
     {
       className: 'menu',
@@ -37,15 +45,7 @@ const Nav = () => {
       <nav>
         <div className="nav-wrapper">
           <h1 className="logo">westagram</h1>
-          <div className="search">
-            <input
-              type="text"
-              placeholder="검색"
-              onFocus={onFocus}
-              onBlur={onBlur}
-            />
-            <i className="fas fa-search" ref={iRef} />
-          </div>
+          <Search />
           <div className="menu-wrapper">
             {buttonData.map(data => (
               <Button

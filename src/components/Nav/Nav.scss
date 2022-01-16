@@ -1,5 +1,9 @@
 @import '../../styles/common.scss';
 
+.hidden {
+  display: none;
+}
+
 /* nav */
 .Nav {
   position: relative;
@@ -30,7 +34,7 @@
       }
 
       /* 검색창 */
-      .search {
+      .Search {
         position: relative;
 
         input {
