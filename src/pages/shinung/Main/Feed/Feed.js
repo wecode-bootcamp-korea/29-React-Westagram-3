@@ -2,8 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import './Feed.scss';
 
 const Feed = props => {
-  // const [comments, setComments] = useState(['강아지가 상당히 귀엽네요🐶😘']);
-
   const [comments, setComments] = useState(['']);
 
   const [input, setInput] = useState('');
@@ -13,7 +11,15 @@ const Feed = props => {
   const onKeyPress = e => {
     const comment = e.target.value;
     if (e.key === 'Enter') {
-      setComments([...comments, comment]);
+      setComments([
+        ...comments,
+        {
+          id: 1,
+          userName: 'wecode',
+          content: comment,
+          isLiked: true,
+        },
+      ]);
       inputRef.current.value = '';
     }
   };
@@ -86,25 +92,15 @@ const Feed = props => {
         </div>
 
         <ul className="comments">
-          {/* {comments.map((comment, i) => (
+          {comments.map(comment => (
             <Comments
-              comment={comment}
-              key={i}
+              key={comment.id}
+              name={comment.userName}
+              comment={comment.content}
               handleLike={handleLike}
               like={like}
             />
-          ))} */}
-          {comments.map(comment => {
-            return (
-              <Comments
-                key={comment.id}
-                name={comment.userName}
-                comment={comment.content}
-                handleLike={handleLike}
-                like={like}
-              />
-            );
-          })}
+          ))}
         </ul>
         <div className="add">
           <input
@@ -126,26 +122,9 @@ const Feed = props => {
   );
 };
 
-// function Comments({ comment, handleLike, like }) {
-//   return (
-//     <li className="comment">
-//       <div>
-//         <p className="comment--user">xeexulee</p>
-//         <p className="comment--text">{comment}</p>
-//         <p className="comment--delete">삭제</p>
-//       </div>
-//       {like ? (
-//         <i className="fas fa-heart liked" onClick={handleLike} />
-//       ) : (
-//         <i className="far fa-heart like" onClick={handleLike} />
-//       )}
-//     </li>
-//   );
-// }
-
 function Comments({ key, name, comment, handleLike, like }) {
   return (
-    <li className="comment" id={key}>
+    <li className="comment" key={key}>
       <div>
         <p className="comment--user">{name}</p>
         <p className="comment--text">{comment}</p>

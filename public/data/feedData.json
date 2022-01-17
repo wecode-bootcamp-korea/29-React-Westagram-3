@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "userName": "Shinunge-",
+    "userImage": "/images/shinung/etc.png",
+    "feedImage": "/images/shinung/feed.png",
+    "isLiked": true,
+    "howmanyImage": "./images/shinung/apple.jpeg",
+    "howmanyUser": "apple_korea",
+    "content": "산책 언제 가냐는 표정입니다- 🤣🤣🤣"
+  },
+  {
+    "id": 2,
+    "userName": "Shinunge-",
+    "userImage": "/images/shinung/etc.png",
+    "feedImage": "/images/shinung/feed.png",
+    "isLiked": true,
+    "howmanyImage": "./images/shinung/apple.jpeg",
+    "howmanyUser": "apple_korea",
+    "content": "산책 언제 가냐는 표정입니다- 🤣🤣🤣"
+  },
+  {
+    "id": 13,
+    "userName": "Shinunge-",
+    "userImage": "/images/shinung/etc.png",
+    "feedImage": "/images/shinung/feed.png",
+    "isLiked": true,
+    "howmanyImage": "./images/shinung/apple.jpeg",
+    "howmanyUser": "apple_korea",
+    "content": "산책 언제 가냐는 표정입니다- 🤣🤣🤣"
+  }
+]
