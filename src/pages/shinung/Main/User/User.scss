@@ -1,0 +1,29 @@
+/* Main--right user */
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.user img {
+  width: 60px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+.user--info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 17px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.user--id {
+  font-weight: bold;
+}
+
+.user--name {
+  color: #949494;
+}
