@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Recommendation from '../Recommendation/Recommendation';
 import './Aside.scss';
 
@@ -32,6 +32,7 @@ const Aside = () => {
   const handleAsideRight = () => {
     setRight((document.documentElement.clientWidth - 935) / 2);
   };
+  useEffect(handleAsideRight);
   window.addEventListener('resize', handleAsideRight);
 
   return (

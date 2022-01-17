@@ -1,14 +1,17 @@
 @import '../Main.scss';
 
-.Feed {
+.Feeds {
+  display: flex;
+  flex-direction: column;
   margin-right: 28px;
   @include media-nav-width {
     margin-right: 0;
   }
 
-  .feed-wrapper {
+  .Feed {
     @include border-gray;
     max-width: 614px;
+    margin-bottom: 24px;
     background-color: white;
 
     section:not(.feed-img) {
@@ -76,7 +79,7 @@
 
 /* 피드 내용 */
 section.content {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 
   .name {
     margin-right: 8px;

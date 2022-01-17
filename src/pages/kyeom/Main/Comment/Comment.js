@@ -1,17 +1,18 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import './Comment.scss';
 
-const UploadedComment = ({ id, comment, deleteComment, idx }) => {
-  const [heart, setHeart] = useState('far');
+const UploadedComment = ({ id, userName, content, isLiked, deleteComment }) => {
+  const [emptyHeart, filledHeart] = ['far', 'fas'];
+  const [heart, setHeart] = useState(isLiked ? filledHeart : emptyHeart);
   const handleLike = () => {
-    heart === 'far' ? setHeart('fas') : setHeart('far');
+    heart === emptyHeart ? setHeart(filledHeart) : setHeart(emptyHeart);
   };
 
   return (
     <div className="uploaded-comment-wrapper">
-      <div className="name">{id}</div>
-      <div className="uploaded-comment">{comment}</div>
-      <button className="delete" onClick={() => deleteComment(idx)}>
+      <div className="name">{userName}</div>
+      <div className="uploaded-comment">{content}</div>
+      <button className="delete" onClick={() => deleteComment(id)}>
         삭제
       </button>
       <div className="like">
@@ -21,56 +22,59 @@ const UploadedComment = ({ id, comment, deleteComment, idx }) => {
   );
 };
 
-const Comment = () => {
-  const [commentData, setCommentData] = useState(
-    localStorage.getItem('idAndComment')
-      ? JSON.parse(localStorage.getItem('idAndComment'))
-      : []
-  );
+const Comment = ({ comments }) => {
+  // const [commentData, setCommentData] = useState(
+  //   localStorage.getItem('idAndComment')
+  //     ? JSON.parse(localStorage.getItem('idAndComment'))
+  //     : []
+  // );
+  const [commentData, setCommentData] = useState(comments);
   const inputRef = useRef();
   const btnRef = useRef();
   const onPost = event => {
     event.preventDefault();
 
-    const id = sessionStorage.getItem('id');
-    const comment = inputRef.current.value;
+    const userName = sessionStorage.getItem('id');
+    const content = inputRef.current.value;
     inputRef.current.value = null;
     btnRef.current.disabled = true;
 
     setCommentData(cur => [
       ...cur,
-      { id: id, comment: comment, idx: Math.random() },
+      {
+        id: cur.length + 1,
+        userName: userName,
+        content: content,
+        isLiked: false,
+      },
     ]);
   };
-  useEffect(() => {
-    localStorage.setItem('idAndComment', JSON.stringify(commentData));
-  }, [commentData]);
   // useEffect(() => {
-  //   fetch('http://localhost:3000/data/kyeom/commentDataKyeom.json')
-  //     .then(res => res.json())
-  //     .then(res => setCommentData(res));
-  // }, []);
+  //   localStorage.setItem('idAndComment', JSON.stringify(commentData));
+  // }, [commentData]);
 
   const handleBtn = () => {
     btnRef.current.disabled = !inputRef.current.value;
   };
 
-  const deleteComment = idx => {
-    setCommentData(cur => cur.filter(ele => ele.idx !== idx));
+  const deleteComment = id => {
+    setCommentData(cur => cur.filter(ele => ele.id !== id));
   };
 
   return (
     <>
       <section className="uploaded-comment">
-        {commentData.map(data => (
-          <UploadedComment
-            id={data.id}
-            comment={data.comment}
-            key={data.idx}
-            idx={data.idx}
-            deleteComment={deleteComment}
-          />
-        ))}
+        {commentData &&
+          commentData.map(data => (
+            <UploadedComment
+              key={data.id}
+              id={data.id}
+              userName={data.userName}
+              content={data.content}
+              isLiked={data.isLiked}
+              deleteComment={deleteComment}
+            />
+          ))}
       </section>
       <section className="comment">
         <form className="comment" onSubmit={onPost}>
