@@ -7,6 +7,8 @@ const Article = () => {
   return (
     <article className="article">
       <Section />
+      <Section />
+      <Section />
     </article>
   );
 };

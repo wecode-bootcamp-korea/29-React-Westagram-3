@@ -5,14 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react/cjs/react.development';
 
-const Comment = ({ data, comment, remove }) => {
+const Comment = ({ data, comment, remove, name }) => {
   const [isLike, setIsLike] = useState(false);
 
   return (
     <div className="feed-comment">
       <span>
         <span>
-          <strong>{localStorage.getItem('id')}</strong> {comment}
+          <strong>{name ? name : localStorage.getItem('id')}</strong> {comment}
         </span>
         <div>
           <FontAwesomeIcon

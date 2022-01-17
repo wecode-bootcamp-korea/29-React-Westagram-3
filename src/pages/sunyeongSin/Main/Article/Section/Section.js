@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Section.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -13,6 +13,18 @@ const Section = () => {
   const [comment, setComment] = useState('');
 
   const [key, setKey] = useState(2);
+
+  const [commentList, setCommentList] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET', // GET method는 기본값이라서 생략이 가능합니다.
+    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+      .then(res => res.json())
+      .then(data => {
+        setCommentList(data);
+      });
+  }, []);
 
   const [commentBox, setCommentBox] = useState([
     { key: 1, comment: '재미있네~' },
@@ -39,7 +51,7 @@ const Section = () => {
     setCommentBox(commentBox.filter(e => e.key !== key));
   };
   return (
-    <section className="feed">
+    <section className="feed" style={{ marginBottom: '20px' }}>
       <div className="feed-profile-box">
         <div className="feed-profile">
           <img
@@ -105,6 +117,9 @@ const Section = () => {
             />
           );
         })}
+        {commentList.map(e => (
+          <Comment key={e.id} comment={e.content} name={e.userName} />
+        ))}
       </div>
       <p className="common" style={{ marginTop: '10px', marginLeft: '10px' }}>
         42분 전
