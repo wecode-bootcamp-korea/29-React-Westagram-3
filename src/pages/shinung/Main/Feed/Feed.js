@@ -1,7 +1,35 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import './Feed.scss';
 
 const Feed = props => {
+  const [comments, setComments] = useState(['강아지가 상당히 귀엽네요🐶😘']);
+
+  const [input, setInput] = useState('');
+
+  const inputRef = useRef();
+
+  const onKeyPress = e => {
+    const comment = e.target.value;
+    if (e.key === 'Enter') {
+      setComments([...comments, comment]);
+      inputRef.current.value = '';
+    }
+  };
+
+  const onChange = e => {
+    setInput(e.target.value);
+  };
+
+  const onClick = () => {
+    setComments([...comments, input]);
+  };
+
+  const [like, setLike] = useState(false);
+
+  const handleLike = () => {
+    setLike(!like);
+  };
+
   return (
     <div className="feeds">
       <article className="feed">
@@ -50,30 +78,50 @@ const Feed = props => {
         </div>
 
         <ul className="comments">
-          <li className="comment">
-            <div>
-              <p className="comment--user">wecode_bootcamp</p>
-              <p className="comment--text">강아지가 상당히 귀엽네요🐶😘</p>
-            </div>
-            <p className="comment--delete">삭제</p>
-            <i className="far fa-heart like"></i>
-            <i className="fas fa-heart liked none"></i>
-          </li>
+          {comments.map((comment, i) => (
+            <Comments
+              comment={comment}
+              key={i}
+              handleLike={handleLike}
+              like={like}
+            />
+          ))}
         </ul>
-
-        <submit className="add">
+        <div className="add">
           <input
             type="textarea"
             placeholder="댓글 달기..."
             className="add--input"
+            onKeyPress={onKeyPress}
+            onChange={onChange}
+            ref={inputRef}
           />
           <div>
-            <span className="add--btn">게시</span>
+            <span className="add--btn" onClick={onClick}>
+              게시
+            </span>
           </div>
-        </submit>
+        </div>
       </article>
     </div>
   );
 };
+
+function Comments({ comment, handleLike, like }) {
+  return (
+    <li className="comment">
+      <div>
+        <p className="comment--user">xeexulee</p>
+        <p className="comment--text">{comment}</p>
+        <p className="comment--delete">삭제</p>
+      </div>
+      {like ? (
+        <i className="fas fa-heart liked" onClick={handleLike} />
+      ) : (
+        <i className="far fa-heart like" onClick={handleLike} />
+      )}
+    </li>
+  );
+}
 
 export default Feed;
