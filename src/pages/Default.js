@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 
-const Default = () => {
-  return <div>처음</div>;
-};
+// const Default = () => {
+//   return <div>처음</div>;
+// };
 
-export default Default;
+// export default Default;

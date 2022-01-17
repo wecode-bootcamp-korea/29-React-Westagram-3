@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+article {
+  .articleTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #dfdfdf;
+    border-bottom: none;
+    width: 500px;
+    height: 70px;
+    background-color: white;
+  }
+
+  .articleTopLeft {
+    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 15px;
+  }
+
+  .articleImg {
+    width: 500px;
+    height: 600px;
+    border: 1px solid #dfdfdf;
+    margin-bottom: -5px;
+  }
+
+  .articleTopLeft {
+    img {
+      width: 45px;
+      height: 45px;
+      border-radius: 100px;
+    }
+  }
+
+  .fa-ellipsis-h {
+    margin-right: 15px;
+  }
+
+  .articleIcon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-right: 1px solid #dfdfdf;
+    border-left: 1px solid #dfdfdf;
+    border-bottom: none;
+    width: 500px;
+    height: 50px;
+    background-color: white;
+  }
+
+  .articleIconLeft {
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15px;
+  }
+
+  .articleIconLeft img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .fa-bookmark {
+    font-size: 25px;
+    margin-right: 10px;
+  }
+
+  .articleLikePeople {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    border: 1px solid #dfdfdf;
+    border-top: 0;
+    border-bottom: 0;
+    background-color: white;
+  }
+
+  .articleLikePeople {
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .articleLikePeople {
+    img {
+      border-radius: 30px;
+      margin-right: 10px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .bold {
+    font-weight: bolder;
+  }
+
+  .light {
+    color: gray;
+  }
+
+  .articleCommentList {
+    width: 500px;
+    border: 1px solid #dfdfdf;
+    border-top: 0;
+    padding: 10px 10px 10px 20px;
+    background-color: white;
+  }
+
+  .articleComment1 {
+    span {
+      font-size: 14px;
+      margin-right: 5px;
+    }
+  }
+
+  .fa-heart {
+    color: gray;
+  }
+
+  .articleComment2 {
+    margin-top: 5px;
+    li {
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .articleComment2 {
+    span {
+      margin-right: 5px;
+    }
+  }
+
+  .articleCommentTime {
+    font-size: 14px;
+    color: gray;
+  }
+
+  .articleCommentPost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    input {
+      width: 500px;
+      height: 50px;
+      border: 1px solid #dfdfdf;
+      outline: none;
+      background-color: white;
+      border-top: none;
+      font-size: 14px;
+      text-align: left;
+      margin-right: -20px;
+      margin-left: 0px;
+      padding-left: 15px;
+      /* margin-left 0이라서 없애봤는데 없애면 정렬이 이상함 */
+      /* 원래 자바스크립트에 있던 걸 리액트로 가져오면 정렬이 원래 이렇게 많이 바뀌나? */
+    }
+    button {
+      border: none;
+      background-color: white;
+      position: absolute;
+      color: skyblue;
+      opacity: 0.5;
+      // bottom: -95px;
+      right: 15px;
+    }
+  }
+
+  .publishColor {
+    color: skyblue;
+    opacity: 0.5;
+  }
+}
