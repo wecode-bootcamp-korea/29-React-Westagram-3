@@ -1,0 +1,63 @@
+@import '../Main.scss';
+
+/* 업로드된 댓글 */
+section.uploaded-comment {
+  margin-bottom: 12px;
+
+  .uploaded-comment-wrapper {
+    display: flex;
+    margin-bottom: 8px;
+
+    .name {
+      margin-right: 8px;
+    }
+
+    .uploaded-comment {
+      flex-grow: 1;
+      overflow-wrap: break-word;
+    }
+
+    .delete {
+      all: unset;
+      margin-right: 8px;
+      color: $gray3;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .like {
+      font-size: 12px;
+      cursor: pointer;
+
+      i {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+/* 댓글 달기 */
+section.comment {
+  padding: 6px 16px;
+  border-top: 1px solid $gray2;
+
+  form {
+    @include flex-justify-between;
+
+    input.comment {
+      flex-grow: 1;
+      height: 36px;
+      margin-right: 8px;
+      border: none;
+    }
+  }
+
+  button {
+    @include button-blue(14px);
+
+    &:disabled {
+      color: $lightblue;
+    }
+  }
+}

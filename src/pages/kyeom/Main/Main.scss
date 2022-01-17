@@ -1,3 +1,67 @@
-h1 {
-  font-size: 1rem;
+@import '../../../styles/common.scss';
+
+@mixin wrapper-width {
+  width: 100%;
+  max-width: $nav-max-width;
+}
+
+@mixin border-gray {
+  border: 1px solid $gray2;
+}
+
+@mixin profile-img($length) {
+  @include border-gray;
+  width: $length;
+  height: $length;
+  border-radius: 50%;
+}
+
+@mixin flex-justify-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin button-blue($font-size) {
+  color: $blue;
+  font-weight: 600;
+  font-size: $font-size;
+}
+
+body {
+  font-size: 14px;
+}
+
+img {
+  width: 100%;
+  border-radius: inherit;
+}
+
+.name {
+  font-weight: 600;
+}
+
+/* main */
+.MainWrapper {
+  @include wrapper-width;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+  margin: auto;
+  margin-top: $nav-height;
+  font-size: 14px;
+
+  @include media-nav-width {
+    justify-content: center;
+  }
+}
+
+.fa-heart {
+  &.far {
+    color: #5e5e5e;
+  }
+
+  &.fas {
+    color: rgb(237, 73, 86);
+  }
 }

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "userName": "basick",
+    "content": "만남은 쉽고 이별은 어려워",
+    "isLiked": true
+  },
+  {
+    "id": 2,
+    "userName": "lllBOI",
+    "content": "ON AIR(feat loco, jaypark",
+    "isLiked": false
+  },
+  {
+    "id": 3,
+    "userName": "OVAN",
+    "content": "어떻게 지내",
+    "isLiked": false
+  },
+  {
+    "id": 4,
+    "userName": "KIM SEUNG MIN",
+    "content": "Chase the Star",
+    "isLiked": false
+  },
+  {
+    "id": 5,
+    "userName": "DD",
+    "content": "Hemi's room(feat. OHUCK",
+    "isLiked": false
+  },
+  {
+    "id": 6,
+    "userName": "colde",
+    "content": "Your Dog Loves You with crush",
+    "isLiked": false
+  },
+  {
+    "id": 7,
+    "userName": "YUMDDA",
+    "content": "하나두 feat zion.t",
+    "isLiked": false
+  },
+  {
+    "id": 8,
+    "userName": "PATEKO",
+    "content": "Rainy Day",
+    "isLiked": false
+  },
+  {
+    "id": 9,
+    "userName": "SHAWN",
+    "content": "Way Back Home",
+    "isLiked": false
+  }
+]
