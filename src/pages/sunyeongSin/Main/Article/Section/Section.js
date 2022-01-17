@@ -9,12 +9,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Comment from './Comment/Comment';
 
-const Section = () => {
+const Section = ({ userName, userImg, feedImg, content }) => {
   const [comment, setComment] = useState('');
 
   const [key, setKey] = useState(2);
 
   const [commentList, setCommentList] = useState([]);
+
+  const [commentBox, setCommentBox] = useState([
+    { key: 1, comment: '재미있네~' },
+  ]);
 
   useEffect(() => {
     fetch('http://localhost:3000/data/commentData.json', {
@@ -26,9 +30,6 @@ const Section = () => {
       });
   }, []);
 
-  const [commentBox, setCommentBox] = useState([
-    { key: 1, comment: '재미있네~' },
-  ]);
   const changeComment = e => {
     setComment(e.target.value);
   };
@@ -50,16 +51,13 @@ const Section = () => {
   const removeComment = key => {
     setCommentBox(commentBox.filter(e => e.key !== key));
   };
+
   return (
     <section className="feed" style={{ marginBottom: '20px' }}>
       <div className="feed-profile-box">
         <div className="feed-profile">
-          <img
-            alt="profile-img"
-            src="https://cdn.pixabay.com/photo/2021/11/05/12/25/woman-6771278_1280.jpg"
-            className="profile-img"
-          />
-          <span>su__cozy</span>
+          <img alt="profile-img" src={userImg} className="profile-img" />
+          <span>{userName}</span>
         </div>
         <p
           className="border-none background-none"
@@ -70,11 +68,7 @@ const Section = () => {
       </div>
 
       <div className="feed-img-box">
-        <img
-          alt="feed-img"
-          src="https://cdn.pixabay.com/photo/2021/12/28/16/35/leopard-6899752_1280.jpg"
-          className="feed-img"
-        />
+        <img alt="feed-img" src={feedImg} className="feed-img" />
       </div>
 
       <div className="feed-function-box">
@@ -101,10 +95,14 @@ const Section = () => {
 
       <div className="feed-text">
         <span>
-          <strong>su__cozy</strong> 위워크에서 진행한 베이킹 클래스
+          <strong>{userName}</strong>&nbsp;
+          {content}
         </span>
       </div>
       <div className="feed-comment-box">
+        {commentList.map(e => (
+          <Comment key={e.id} comment={e.content} name={e.userName} />
+        ))}
         {commentBox.map(e => {
           console.log(e);
           // 왜 계속 랜더링 될까
@@ -117,9 +115,6 @@ const Section = () => {
             />
           );
         })}
-        {commentList.map(e => (
-          <Comment key={e.id} comment={e.content} name={e.userName} />
-        ))}
       </div>
       <p className="common" style={{ marginTop: '10px', marginLeft: '10px' }}>
         42분 전

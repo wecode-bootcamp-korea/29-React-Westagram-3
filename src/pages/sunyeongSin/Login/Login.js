@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
@@ -12,13 +12,15 @@ function Login() {
     if (e.target.className === 'login-id') setId(e.target.value);
 
     if (e.target.className === 'login-password') setPassword(e.target.value);
+  };
 
+  useEffect(() => {
     setIsValid(() => {
       if (id.length >= 5 && password.length >= 5 && id.includes('@'))
         return false;
       else return true;
     });
-  };
+  }, [id, password]);
 
   const login = () => {
     if (id.length < 6 || !id.includes('@')) {
@@ -34,6 +36,7 @@ function Login() {
     localStorage.setItem('id', id);
     navigate('/main-su');
   };
+  useEffect(() => {}, []);
 
   return (
     <main className="login-container">

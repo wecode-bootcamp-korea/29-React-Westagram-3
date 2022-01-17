@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "userName": "wecode",
+    "userImg": "https://images.unsplash.com/photo-1642265431980-70a921d0d2a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+    "feedImg": "https://images.unsplash.com/photo-1642112177610-c1ff271857dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+    "content": "맛있는 음식 나는 한국인"
+  },
+  {
+    "id": 2,
+    "userName": "gil-dong",
+    "userImg": "https://images.unsplash.com/photo-1642336352166-fe407abdc218?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+    "feedImg": "https://images.unsplash.com/photo-1642202814832-7506e6634ca1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+    "content": "겨울은 춥다"
+  },
+  {
+    "id": 3,
+    "userName": "Sanches",
+    "userImg": "https://images.unsplash.com/photo-1642350361533-d8252bd831fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+    "feedImg": "https://images.unsplash.com/photo-1642265410877-34f6fc0863c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+    "content": "내 포즈를 봐바"
+  },
+  {
+    "id": 4,
+    "userName": "steve",
+    "userImg": "https://images.unsplash.com/photo-1642274969673-9e56b82131ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+    "feedImg": "https://images.unsplash.com/photo-1642356407175-5c3d00870d61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+    "content": "여기가 어딘지 아니?"
+  }
+]
