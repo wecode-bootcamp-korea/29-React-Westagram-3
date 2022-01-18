@@ -81,10 +81,10 @@ const Feed = ({
         </div>
         <div className="howmany">
           <img alt="apple" src={howmanyImage} />
-          <span>
+          <p className="howmany-text">
             <a href="">{howmanyUser}</a>님 <a href="">외 {howmany}</a>이
             좋아합니다
-          </span>
+          </p>
         </div>
 
         <div className="content">

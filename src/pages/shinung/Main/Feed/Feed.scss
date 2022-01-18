@@ -61,6 +61,7 @@
   justify-content: space-between;
   align-items: center;
   height: 55px;
+  margin-bottom: -5px;
 }
 
 .feed .evaluation div img {
@@ -80,16 +81,20 @@
 .feed .howmany {
   display: flex;
   align-items: center;
-  height: 20px;
-  padding-bottom: 10px;
+  height: 30px;
+  padding-bottom: 5px;
 }
 
 .feed .howmany img {
-  width: 20px;
+  width: 25px;
   border-radius: 50%;
   border: 1px solid #e5e5e5;
   margin: 0 5px 0 13px;
   cursor: pointer;
+}
+
+.feed .howmany .howmany-text {
+  margin: 5px 0 0 2px;
 }
 
 .feed .howmany a {
