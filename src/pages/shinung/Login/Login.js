@@ -5,29 +5,30 @@ import './Login.scss';
 
 const LoginShinung = () => {
   const navigate = useNavigate();
+  const [btn, setBtn] = useState(false);
 
   const goToMain = () => {
     navigate('/main-shinung');
   };
 
-  const [id, setId] = useState('');
-  const handleIdInput = e => {
-    setId(e.target.value);
+  const [inputValues, setInputValues] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleInput = e => {
+    const { name, value } = e.target;
+    setInputValues({
+      ...inputValues,
+      [name]: value,
+    });
     handleBtn();
   };
-
-  const [pw, setPw] = useState('');
-  const handlePwInput = e => {
-    setPw(e.target.value);
-    handleBtn();
-  };
-
-  const [btn, setBtn] = useState(false);
 
   const handleBtn = () => {
     const regEmail =
       /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
-    if (regEmail.test(id) && pw.length >= 4) {
+    if (regEmail.test(inputValues.email) && inputValues.password.length >= 4) {
       setBtn(true);
     } else {
       setBtn(false);
@@ -49,31 +50,23 @@ const LoginShinung = () => {
               type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
               className="id"
-              onChange={handleIdInput}
+              name="email"
+              onChange={handleInput}
             />
             <input
               type="password"
               placeholder="비밀번호"
               className="password"
-              onChange={handlePwInput}
+              name="password"
+              onChange={handleInput}
             />
-            {btn ? (
-              <button
-                style={{ opacity: 1 }}
-                className="login-btn"
-                onClick={goToMain}
-              >
-                로그인
-              </button>
-            ) : (
-              <button
-                style={{ opacity: 0.5 }}
-                className="login-btn"
-                onClick={goToMain}
-              >
-                로그인
-              </button>
-            )}
+
+            <button
+              className={btn ? 'activated' : 'deactivated'}
+              onClick={goToMain}
+            >
+              로그인
+            </button>
 
             <p className="login-notice" />
             <div className="separate">

@@ -2,6 +2,18 @@ body {
   font-size: 14px;
 }
 
+%btn {
+  width: 270px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0096f7;
+  color: white;
+  text-align: center;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
 /* Section */
 .section {
   height: 100vh;
@@ -60,17 +72,15 @@ body {
       color: #949494;
     }
 
-    .login-btn {
-      width: 270px;
-      padding: 8px;
-      border: none;
-      border-radius: 5px;
-      background-color: #0096f7;
+    .deactivated {
+      @extend %btn;
       opacity: 0.5;
-      color: white;
-      text-align: center;
-      margin: 10px 0;
-      font-weight: bold;
+      pointer-events: none;
+    }
+
+    .activated {
+      @extend %btn;
+      opacity: 1;
     }
   }
 

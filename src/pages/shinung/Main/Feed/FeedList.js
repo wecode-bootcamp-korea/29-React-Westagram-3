@@ -14,7 +14,7 @@ const FeedList = props => {
     <>
       {feeds.map(feed => (
         <Feed
-          id={feed.id}
+          key={feed.id}
           userName={feed.userName}
           userImage={feed.userImage}
           feedImage={feed.feedImage}

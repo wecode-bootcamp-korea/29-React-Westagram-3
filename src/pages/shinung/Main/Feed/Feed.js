@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import './Feed.scss';
 
 const Feed = ({
-  id,
+  key,
   userName,
   userImage,
   feedImage,
@@ -18,7 +18,7 @@ const Feed = ({
 
   const onKeyPress = e => {
     const comment = e.target.value;
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && comment !== '') {
       setComments([
         ...comments,
         {
@@ -37,7 +37,16 @@ const Feed = ({
   };
 
   const onClick = () => {
-    setComments([...comments, input]);
+    setComments([
+      ...comments,
+      {
+        id: 1,
+        userName: 'wecode',
+        content: input,
+        isLiked: true,
+      },
+    ]);
+    inputRef.current.value = '';
   };
 
   const [like, setLike] = useState(false);
@@ -54,7 +63,7 @@ const Feed = ({
 
   return (
     <div className="feeds">
-      <article className="feed" id={id}>
+      <article className="feed" key={key}>
         <div className="feed-user">
           <div className="user-info">
             <img alt="profile" src={userImage} className="user-profile" />
@@ -91,9 +100,9 @@ const Feed = ({
         </div>
 
         <ul className="comments">
-          {comments.map(comment => (
+          {comments.map((comment, i) => (
             <Comments
-              key={comment.id}
+              key={i}
               name={comment.userName}
               comment={comment.content}
               handleLike={handleLike}
