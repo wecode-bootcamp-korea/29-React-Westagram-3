@@ -26,3 +26,31 @@ $nav-max-width: 935px;
     @content;
   }
 }
+
+@mixin wrapper-width {
+  width: 100%;
+  max-width: $nav-max-width;
+}
+
+@mixin border-gray {
+  border: 1px solid $gray2;
+}
+
+@mixin profile-img($length) {
+  @include border-gray;
+  width: $length;
+  height: $length;
+  border-radius: 50%;
+}
+
+@mixin flex-justify-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin button-blue($font-size) {
+  color: $blue;
+  font-weight: 600;
+  font-size: $font-size;
+}
