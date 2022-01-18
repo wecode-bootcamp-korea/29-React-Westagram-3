@@ -18,52 +18,36 @@ const Feed = ({
   }, []);
 
   const [comments, setComments] = useState(['']);
-  const [input, setInput] = useState('');
   const inputRef = useRef();
 
-  const onKeyPress = e => {
-    const comment = e.target.value;
-    if (e.key === 'Enter' && comment !== '') {
+  const onPost = e => {
+    const content = inputRef.current.value;
+    e.preventDefault();
+
+    if (content !== '') {
       setComments([
         ...comments,
         {
           id: Math.random(),
           userName: 'wecode',
-          content: comment,
+          content: content,
           isLiked: true,
         },
       ]);
-      inputRef.current.value = '';
     }
-  };
-
-  const onChange = e => {
-    setInput(e.target.value);
-  };
-
-  const onClick = () => {
-    setComments([
-      ...comments,
-      {
-        id: Math.random(),
-        userName: 'wecode',
-        content: input,
-        isLiked: true,
-      },
-    ]);
     inputRef.current.value = '';
-  };
-
-  const [like, setLike] = useState(false);
-
-  const handleLike = () => {
-    setLike(!like);
   };
 
   const onRemove = id => {
     setComments(comments.filter(comment => comment.id !== id));
   };
-  console.log(comments);
+
+  const [like, setLike] = useState([0, 0, 0]);
+
+  const handleLike = () => {
+    setLike(!like);
+  };
+
   return (
     <div className="feeds">
       <article className="feed">
@@ -115,21 +99,19 @@ const Feed = ({
             />
           ))}
         </ul>
-        <div className="add">
+        <form className="add" onSubmit={onPost}>
           <input
             type="textarea"
             placeholder="댓글 달기..."
             className="input"
-            onKeyPress={onKeyPress}
-            onChange={onChange}
             ref={inputRef}
           />
           <div className="btn">
-            <span className="add-btn" onClick={onClick}>
+            <button type="submit" className="add-btn">
               게시
-            </span>
+            </button>
           </div>
-        </div>
+        </form>
       </article>
     </div>
   );
