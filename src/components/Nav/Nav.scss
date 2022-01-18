@@ -17,6 +17,7 @@
     @extend %nav-container;
     border-bottom: 1px solid $gray2;
     background-color: white;
+    z-index: 1;
 
     .nav-wrapper {
       @include wrapper-width;
