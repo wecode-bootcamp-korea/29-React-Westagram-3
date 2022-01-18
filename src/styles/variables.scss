@@ -27,15 +27,6 @@ $nav-max-width: 935px;
   }
 }
 
-@mixin wrapper-width {
-  width: 100%;
-  max-width: $nav-max-width;
-}
-
-@mixin border-gray {
-  border: 1px solid $gray2;
-}
-
 @mixin profile-img($length) {
   @include border-gray;
   width: $length;
