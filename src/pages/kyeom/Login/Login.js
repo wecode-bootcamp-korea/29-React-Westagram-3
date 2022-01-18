@@ -3,19 +3,23 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const Form = () => {
-  const [id, setId] = useState('');
-  const [password, setPassword] = useState('');
+  const [inputState, setInputState] = useState({
+    id: '',
+    password: '',
+  });
   const btnRef = useRef();
-  const handleIdInput = event => {
-    setId(event.target.value);
-  };
-  const handlePasswordInput = event => {
-    setPassword(event.target.value);
+  const handleInput = event => {
+    const { name, value } = event.target;
+    setInputState({
+      ...inputState,
+      [name]: value,
+    });
   };
   useEffect(() => {
     btnRef.current.disabled =
-      String(id).length < 5 || String(password).length < 8;
-  }, [id, password]);
+      String(inputState.id).length < 5 ||
+      String(inputState.password).length < 8;
+  }, [inputState]);
 
   const navigate = useNavigate();
   const idRef = useRef();
@@ -30,15 +34,17 @@ const Form = () => {
       <input
         ref={idRef}
         className="id"
+        name="id"
         type="text"
         placeholder="전화번호, 사용자 이름 또는 이메일"
-        onInput={handleIdInput}
+        onInput={handleInput}
       />
       <input
         className="password"
+        name="password"
         type="password"
         placeholder="비밀번호"
-        onInput={handlePasswordInput}
+        onInput={handleInput}
       />
       <button ref={btnRef} className="submit" type="submit" disabled>
         로그인
