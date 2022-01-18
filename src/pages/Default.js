@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-// import React from 'react';
-
-// const Default = () => {
-//   return <div>처음</div>;
-// };
-=======
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -30,6 +23,5 @@ const Default = () => {
     </div>
   );
 };
->>>>>>> master
 
 // export default Default;
