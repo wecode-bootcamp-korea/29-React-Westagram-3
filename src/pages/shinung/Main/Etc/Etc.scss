@@ -1,11 +1,18 @@
-/* etc & compony */
-.etc {
-  // width: 275px;
-  color: #c4c4c4;
-  margin-top: 15px;
-}
+/* Company Name & Etc */
+$fontColor: #c4c4c4;
 
-.compony {
-  color: #c4c4c4;
-  font-weight: 600;
+.company {
+  .etc {
+    color: $fontColor;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    line-height: 22px;
+    cursor: pointer;
+  }
+
+  .name {
+    color: $fontColor;
+    font-weight: 600;
+    cursor: pointer;
+  }
 }

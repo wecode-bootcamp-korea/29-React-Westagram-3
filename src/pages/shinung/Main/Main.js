@@ -14,10 +14,10 @@ const MainShinung = props => {
     <>
       <Nav />
       <main className="main">
-        <div className="main--left">
+        <div className="main-left">
           <FeedList />
         </div>
-        <div className="main--right">
+        <div className="main-right">
           <User />
           <Story />
           <Suggestion />

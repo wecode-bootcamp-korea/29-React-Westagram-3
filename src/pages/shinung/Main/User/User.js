@@ -3,11 +3,11 @@ import './User.scss';
 
 const User = props => {
   return (
-    <div className="user">
+    <div className="right">
       <img alt="profile" src="/images/shinung/profile.jpeg" />
-      <div className="user--info">
-        <span className="user--id">Shinunge-</span>
-        <span className="user--name">한신웅</span>
+      <div className="right-info">
+        <span className="right-id">Shinunge-</span>
+        <span className="right-name">한신웅</span>
       </div>
     </div>
   );

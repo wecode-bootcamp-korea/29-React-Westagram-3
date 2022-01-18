@@ -1,4 +1,7 @@
 /* Suggestion */
+$followColor: #2e91ef;
+$textColor: #949494;
+
 .suggestion {
   width: 300px;
   height: 225px;
@@ -6,60 +9,61 @@
   margin-top: 20px;
   padding-bottom: 10px;
   background-color: #ffffff;
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+
+    span:nth-child(1) {
+      color: $textColor;
+      cursor: pointer;
+    }
+
+    span:nth-child(2) {
+      font-weight: bold;
+      color: black;
+      cursor: pointer;
+    }
+  }
+
+  .follow {
+    color: $followColor;
+    font-weight: bold;
+    cursor: pointer;
+  }
 }
 
-.suggestion .suggestion--user--info {
-  width: 170px;
-  padding-right: 10px;
-}
-
-.suggestion .suggestion--follow {
-  color: #2e91ef;
-  font-weight: bold;
-}
-
-.suggestion .suggestion--user--name {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.suggestion .suggestion--info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-}
-
-.suggestion .suggestion--info span:nth-child(1) {
-  color: #949494;
-}
-
-.suggestion .suggestion--info span:nth-child(2) {
-  font-weight: bold;
-  color: black;
-}
-
-.suggestion .suggestion--user {
+.suggestion-user {
   display: flex;
   align-items: center;
   margin-left: 15px;
   margin-bottom: 10px;
-}
 
-.suggestion .suggestion--user img {
-  width: 48px;
-  border-radius: 50%;
-}
+  .suggestion-img {
+    width: 48px;
+    border-radius: 50%;
+  }
 
-.suggestion .suggestion--user--info p {
-  margin: 0 0 0 10px;
-}
+  .suggestion-info {
+    width: 170px;
+    padding-right: 10px;
 
-.suggestion .suggestion--user--id {
-  font-weight: bold;
-}
+    p {
+      margin: 0 0 0 10px;
+    }
 
-.suggestion .suggestion--user--name {
-  color: #949494;
+    .suggestion-id {
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .suggestion-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: $textColor;
+    }
+  }
 }

@@ -55,18 +55,14 @@ const Feed = ({
   return (
     <div className="feeds">
       <article className="feed" id={id}>
-        <div className="feed--user">
-          <div className="feed--user--info">
-            <img
-              alt="profile"
-              src={userImage}
-              className="feed--user--profile"
-            />
-            <span className="feed--user--name">{userName}</span>
+        <div className="feed-user">
+          <div className="user-info">
+            <img alt="profile" src={userImage} className="user-profile" />
+            <span className="user-name">{userName}</span>
           </div>
-          <img alt="etc" src="/images/shinung/etc.png" className="etc" />
+          <img alt="etc" src="/images/shinung/etc.png" className="feed-etc" />
         </div>
-        <img alt="feed-image" src={feedImage} className="image" />
+        <img alt="feedImage" src={feedImage} className="feedImage" />
         <div className="evaluation">
           <div>
             <img alt="like" src="./images/shinung/like.png" />
@@ -89,8 +85,8 @@ const Feed = ({
 
         <div className="content">
           <div>
-            <span className="content--user">{userName}</span>
-            <span className="content--text">{content}</span>
+            <span className="content-user">{userName}</span>
+            <span className="content-text">{content}</span>
           </div>
         </div>
 
@@ -109,13 +105,13 @@ const Feed = ({
           <input
             type="textarea"
             placeholder="댓글 달기..."
-            className="add--input"
+            className="input"
             onKeyPress={onKeyPress}
             onChange={onChange}
             ref={inputRef}
           />
-          <div>
-            <span className="add--btn" onClick={onClick}>
+          <div className="btn">
+            <span className="add-btn" onClick={onClick}>
               게시
             </span>
           </div>
@@ -129,9 +125,9 @@ function Comments({ key, name, comment, handleLike, like }) {
   return (
     <li className="comment" key={key}>
       <div>
-        <p className="comment--user">{name}</p>
-        <p className="comment--text">{comment}</p>
-        <p className="comment--delete">삭제</p>
+        <p className="comment-user">{name}</p>
+        <p className="comment-text">{comment}</p>
+        <p className="comment-delete">삭제</p>
       </div>
       {like ? (
         <i className="fas fa-heart liked" onClick={handleLike} />

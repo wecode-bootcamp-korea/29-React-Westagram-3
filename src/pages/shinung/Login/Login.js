@@ -40,27 +40,27 @@ const LoginShinung = () => {
         <img
           alt="iphone"
           src="/images/shinung/iphone.png"
-          className="main__img"
+          className="main-img"
         />
-        <div className="login--form">
+        <div className="login-form">
           <form className="login">
-            <h1 className="login--title">westagram</h1>
+            <h1 className="title">westagram</h1>
             <input
               type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
-              className="login--id"
+              className="id"
               onChange={handleIdInput}
             />
             <input
               type="password"
               placeholder="비밀번호"
-              className="login--password"
+              className="password"
               onChange={handlePwInput}
             />
             {btn ? (
               <button
                 style={{ opacity: 1 }}
-                className="login--button"
+                className="login-btn"
                 onClick={goToMain}
               >
                 로그인
@@ -68,30 +68,30 @@ const LoginShinung = () => {
             ) : (
               <button
                 style={{ opacity: 0.5 }}
-                className="login--button"
+                className="login-btn"
                 onClick={goToMain}
               >
                 로그인
               </button>
             )}
 
-            <p className="login--notice" />
+            <p className="login-notice" />
             <div className="separate">
-              <div className="separate--line" />
-              <p className="separate--text">또는</p>
-              <div className="separate--line" />
+              <div className="separate-line" />
+              <p className="separate-text">또는</p>
+              <div className="separate-line" />
             </div>
-            <button className="login--facebook">
+            <button className="facebook">
               <img alt="facebook" src="/images/shinung/facebook.svg" />
               <p>Facebook으로 로그인</p>
             </button>
-            <p className="forget--password">비밀번호를 잊으셨나요?</p>
+            <p className="forget-password">비밀번호를 잊으셨나요?</p>
           </form>
 
           <div className="signin">
             <p>
               계정이 없으신가요?
-              <a href="">가입하기</a>
+              <a href=""> 가입하기</a>
             </p>
           </div>
 
@@ -101,12 +101,12 @@ const LoginShinung = () => {
               <img
                 alt="app-store"
                 src="/images/shinung/appstore.png"
-                className="download--app-store"
+                className="app-store"
               />
               <img
                 alt="google-play"
                 src="/images/shinung/googleplay.png"
-                className="download--google-play"
+                className="google-play"
               />
             </div>
           </div>
