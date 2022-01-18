@@ -2,7 +2,6 @@ import React from 'react';
 import Nav from '../../../components/Nav/Nav';
 import User from './User/User';
 import Etc from './Etc/Etc';
-// import Feed from './Feed/Feed';
 import Footer from './Footer/Footer';
 import Story from './Story/Story';
 import Suggestion from './Suggestion/Suggestion';
