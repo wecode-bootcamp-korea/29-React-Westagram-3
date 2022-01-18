@@ -9,6 +9,10 @@
     width: 100%;
   }
 
+  .hidden {
+    display: none;
+  }
+
   nav {
     @extend %nav-container;
     border-bottom: 1px solid $gray2;

@@ -27,10 +27,10 @@ const buttonData = [
 const Nav = () => {
   const iRef = useRef();
   const onFocus = () => {
-    iRef.current.style.display = 'none';
+    iRef.current.className = 'fas fa-search hidden';
   };
   const onBlur = () => {
-    iRef.current.style.display = 'inline-block';
+    iRef.current.className = 'fas fa-search';
   };
 
   return (
