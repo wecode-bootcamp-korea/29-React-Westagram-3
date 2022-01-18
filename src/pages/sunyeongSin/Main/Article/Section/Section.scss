@@ -1,9 +1,7 @@
 .feed {
-  border: 1px #ebebeb solid;
-}
-section {
   width: 40vw;
   margin-bottom: 20px;
+  border: 2px #ebebeb solid;
 
   .feed-profile-box {
     display: flex;
@@ -11,31 +9,35 @@ section {
     align-items: center;
     height: 50px;
     margin-top: 10px;
-  }
 
-  .feed-profile {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 130px;
-    padding-left: 10px;
-  }
+    .feed-profile {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 130px;
+      padding-left: 10px;
+    }
 
-  .profile-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
+    .profile-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
 
+    p {
+      font-size: 20px;
+      margin-right: 5px;
+    }
+  }
   .feed-img-box {
     height: 500px;
     margin-top: 10px;
-  }
 
-  .feed-img {
-    width: 40vw;
-    height: 100%;
+    .feed-img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .feed-function-box {
@@ -45,33 +47,41 @@ section {
     padding-left: 10px;
     padding-right: 10px;
     font-size: 25px;
-  }
 
-  .feed-function-box-first {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100px;
+    .feed-function-box-first {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100px;
+    }
+
+    .feed-function-box-second {
+      margin-right: 10px;
+    }
   }
 
   .feed-like {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 10px;
-  }
+    margin-top: 13px;
 
-  .feed-like-img {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    margin-right: 10px;
-    margin-left: 10px;
+    .feed-like-img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
   }
 
   .feed-text {
-    margin-top: 10px;
+    margin-top: 15px;
     padding-left: 10px;
+
+    strong {
+      font-weight: 800;
+    }
   }
 
   .feed-comment-write-box {
@@ -81,16 +91,20 @@ section {
     padding-right: 10px;
     display: flex;
     justify-content: space-between;
+
+    .feed-comment-write {
+      width: 80%;
+      background-color: #fafafa;
+      border-style: none;
+    }
+
+    .feed-comment-write:focus {
+      outline: none;
+    }
   }
 
-  .feed-comment-write {
-    width: 80%;
-    background-color: #fafafa;
-    border-style: none;
-  }
-
-  .feed-comment-write:focus {
-    outline: none;
+  .feed-comment-ptag {
+    margin: 12px 10px 5px 10px;
   }
 
   .feed-comment-write-box > button {

@@ -22,8 +22,25 @@ function Login() {
     });
   }, [id, password]);
 
+  useEffect(() => {
+    console.log('로그인 테스트 시작');
+    fetch(
+      'https://cors-anywhere.herokuapp.com/https://westagram-signup.herokuapp.com/signup',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          email: 'lll',
+          password: 'asdfeasdf',
+        }),
+      }
+    )
+      .then(response => response.json())
+      .then(result => console.log('결과: ', result));
+    console.log('로그인 테스트 끝');
+  }, []);
+
   const login = () => {
-    if (id.length < 6 || !id.includes('@')) {
+    if (id.length < 5 || !id.includes('@')) {
       alert('아이디를 정확히 입력하시오.');
       return;
     }
@@ -36,7 +53,6 @@ function Login() {
     localStorage.setItem('id', id);
     navigate('/main-su');
   };
-  useEffect(() => {}, []);
 
   return (
     <main className="login-container">

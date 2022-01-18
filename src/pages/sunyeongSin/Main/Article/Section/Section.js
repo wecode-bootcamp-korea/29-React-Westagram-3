@@ -22,8 +22,8 @@ const Section = ({ userName, userImg, feedImg, content }) => {
 
   useEffect(() => {
     fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET', // GET method는 기본값이라서 생략이 가능합니다.
-    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+      method: 'GET',
+    })
       .then(res => res.json())
       .then(data => {
         setCommentList(data);
@@ -53,18 +53,13 @@ const Section = ({ userName, userImg, feedImg, content }) => {
   };
 
   return (
-    <section className="feed" style={{ marginBottom: '20px' }}>
+    <section className="feed">
       <div className="feed-profile-box">
         <div className="feed-profile">
           <img alt="profile-img" src={userImg} className="profile-img" />
           <span>{userName}</span>
         </div>
-        <p
-          className="border-none background-none"
-          style={{ fontSize: '20px', marginRight: '5px' }}
-        >
-          ...
-        </p>
+        <p>...</p>
       </div>
 
       <div className="feed-img-box">
@@ -99,13 +94,14 @@ const Section = ({ userName, userImg, feedImg, content }) => {
           {content}
         </span>
       </div>
+
       <div className="feed-comment-box">
         {commentList.map(e => (
           <Comment key={e.id} comment={e.content} name={e.userName} />
         ))}
         {commentBox.map(e => {
           console.log(e);
-          // 왜 계속 랜더링 될까
+          // 왜 계속 랜더링 될까 일부러 뒀습니다
           return (
             <Comment
               data={e}
@@ -116,9 +112,7 @@ const Section = ({ userName, userImg, feedImg, content }) => {
           );
         })}
       </div>
-      <p className="common" style={{ marginTop: '10px', marginLeft: '10px' }}>
-        42분 전
-      </p>
+      <p className="feed-comment-ptag">42분 전</p>
       <hr />
 
       <div className="feed-comment-write-box">
