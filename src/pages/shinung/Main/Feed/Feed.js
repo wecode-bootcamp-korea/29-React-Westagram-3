@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import './Feed.scss';
 
 const Feed = ({
-  key,
   userName,
   userImage,
   feedImage,
@@ -12,6 +11,12 @@ const Feed = ({
   howmany,
   content,
 }) => {
+  useEffect(() => {
+    fetch('http://localhost:3000/data/commentData.json')
+      .then(res => res.json())
+      .then(data => setComments(data));
+  }, []);
+
   const [comments, setComments] = useState(['']);
   const [input, setInput] = useState('');
   const inputRef = useRef();
@@ -22,7 +27,7 @@ const Feed = ({
       setComments([
         ...comments,
         {
-          id: 1,
+          id: Math.random(),
           userName: 'wecode',
           content: comment,
           isLiked: true,
@@ -40,7 +45,7 @@ const Feed = ({
     setComments([
       ...comments,
       {
-        id: 1,
+        id: Math.random(),
         userName: 'wecode',
         content: input,
         isLiked: true,
@@ -55,15 +60,13 @@ const Feed = ({
     setLike(!like);
   };
 
-  useEffect(() => {
-    fetch('http://localhost:3000/data/commentData.json')
-      .then(res => res.json())
-      .then(data => setComments(data));
-  }, []);
-
+  const onRemove = id => {
+    setComments(comments.filter(comment => comment.id !== id));
+  };
+  console.log(comments);
   return (
     <div className="feeds">
-      <article className="feed" key={key}>
+      <article className="feed">
         <div className="feed-user">
           <div className="user-info">
             <img alt="profile" src={userImage} className="user-profile" />
@@ -100,13 +103,15 @@ const Feed = ({
         </div>
 
         <ul className="comments">
-          {comments.map((comment, i) => (
+          {comments.map((comment, idx) => (
             <Comments
-              key={i}
+              key={idx}
+              id={comment.id}
               name={comment.userName}
               comment={comment.content}
               handleLike={handleLike}
               like={like}
+              onRemove={onRemove}
             />
           ))}
         </ul>
@@ -130,13 +135,15 @@ const Feed = ({
   );
 };
 
-function Comments({ key, name, comment, handleLike, like }) {
+function Comments({ id, name, comment, handleLike, like, onRemove }) {
   return (
-    <li className="comment" key={key}>
+    <li className="comment">
       <div>
         <p className="comment-user">{name}</p>
         <p className="comment-text">{comment}</p>
-        <p className="comment-delete">삭제</p>
+        <p className="comment-delete" onClick={() => onRemove(id)}>
+          삭제
+        </p>
       </div>
       {like ? (
         <i className="fas fa-heart liked" onClick={handleLike} />
