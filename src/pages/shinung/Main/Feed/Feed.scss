@@ -1,7 +1,7 @@
 /* Feeds */
 .feeds {
   width: 600px;
-  margin-top: 140px;
+  margin-top: 50px;
   border: 1px solid #e5e5e5;
   background-color: white;
 }
@@ -11,6 +11,8 @@
   height: 500px;
   margin-top: 140px;
   margin-left: 25px;
+  position: sticky;
+  top: 140px;
 }
 
 /* Feed */
@@ -20,7 +22,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  height: 55px;
+  height: 60px;
 }
 
 .feed--user--info {
@@ -43,11 +45,12 @@
 .feed--user--name {
   font-weight: bold;
   cursor: pointer;
+  margin-top: 5px;
 }
 
 /* Feed image */
 .feed .image {
-  width: 600px;
+  width: 598px;
   height: 600px;
   margin-bottom: -4px;
 }
@@ -101,7 +104,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 2px 0;
+  padding: 8px 0;
   background-color: white;
 }
 
@@ -110,6 +113,10 @@
   margin: 0 0 0 15px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.content--text {
+  margin-left: 5px;
 }
 
 /* Comment */
@@ -123,7 +130,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 2px 0;
+  // padding: 2px 0;
   background-color: white;
   list-style: none;
   position: relative;

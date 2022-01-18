@@ -2,31 +2,45 @@
   {
     "id": 1,
     "userName": "Shinunge-",
-    "userImage": "/images/shinung/etc.png",
+    "userImage": "/images/shinung/profile.jpeg",
     "feedImage": "/images/shinung/feed.png",
     "isLiked": true,
     "howmanyImage": "./images/shinung/apple.jpeg",
     "howmanyUser": "apple_korea",
+    "howmany": "52,490",
     "content": "산책 언제 가냐는 표정입니다- 🤣🤣🤣"
   },
   {
     "id": 2,
-    "userName": "Shinunge-",
-    "userImage": "/images/shinung/etc.png",
-    "feedImage": "/images/shinung/feed.png",
+    "userName": "Steve_Jobs_",
+    "userImage": "/images/shinung/jobs.png",
+    "feedImage": "/images/shinung/watch.jpg",
     "isLiked": true,
-    "howmanyImage": "./images/shinung/apple.jpeg",
-    "howmanyUser": "apple_korea",
-    "content": "산책 언제 가냐는 표정입니다- 🤣🤣🤣"
+    "howmanyImage": "./images/shinung/bill.jpeg",
+    "howmanyUser": "Bill_Gates",
+    "howmany": "1,678,310",
+    "content": "One more thing ⌚️"
   },
   {
-    "id": 13,
-    "userName": "Shinunge-",
-    "userImage": "/images/shinung/etc.png",
-    "feedImage": "/images/shinung/feed.png",
+    "id": 3,
+    "userName": "sabriansya-",
+    "userImage": "/images/shinung/user3.jpg",
+    "feedImage": "/images/shinung/food.jpg",
     "isLiked": true,
-    "howmanyImage": "./images/shinung/apple.jpeg",
-    "howmanyUser": "apple_korea",
-    "content": "산책 언제 가냐는 표정입니다- 🤣🤣🤣"
+    "howmanyImage": "./images/shinung/profile.jpeg",
+    "howmanyUser": "Shinunge-",
+    "howmany": "5,310",
+    "content": "Follow your heart-"
+  },
+  {
+    "id": 4,
+    "userName": "UberEats",
+    "userImage": "/images/shinung/ubereats.jpeg",
+    "feedImage": "/images/shinung/uber.jpg",
+    "isLiked": true,
+    "howmanyImage": "./images/shinung/user3.jpg",
+    "howmanyUser": "sabriansya-",
+    "howmany": "3,019",
+    "content": "Transportation as reliable as running water"
   }
 ]

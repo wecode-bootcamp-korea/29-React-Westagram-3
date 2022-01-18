@@ -1,11 +1,19 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './Feed.scss';
 
-const Feed = props => {
+const Feed = ({
+  id,
+  userName,
+  userImage,
+  feedImage,
+  isLiked,
+  howmanyImage,
+  howmanyUser,
+  howmany,
+  content,
+}) => {
   const [comments, setComments] = useState(['']);
-
   const [input, setInput] = useState('');
-
   const inputRef = useRef();
 
   const onKeyPress = e => {
@@ -46,23 +54,19 @@ const Feed = props => {
 
   return (
     <div className="feeds">
-      <article className="feed">
+      <article className="feed" id={id}>
         <div className="feed--user">
           <div className="feed--user--info">
             <img
               alt="profile"
-              src="/images/shinung/profile.jpeg"
+              src={userImage}
               className="feed--user--profile"
             />
-            <span className="feed--user--name">Shinunge-</span>
+            <span className="feed--user--name">{userName}</span>
           </div>
           <img alt="etc" src="/images/shinung/etc.png" className="etc" />
         </div>
-        <img
-          alt="feed-image"
-          src="/images/shinung/feed.png"
-          className="image"
-        />
+        <img alt="feed-image" src={feedImage} className="image" />
         <div className="evaluation">
           <div>
             <img alt="like" src="./images/shinung/like.png" />
@@ -76,18 +80,17 @@ const Feed = props => {
           />
         </div>
         <div className="howmany">
-          <img alt="apple" src="./images/shinung/apple.jpeg" />
+          <img alt="apple" src={howmanyImage} />
           <span>
-            <a href="">apple_korea</a>님 <a href="">외 104명</a>이 좋아합니다
+            <a href="">{howmanyUser}</a>님 <a href="">외 {howmany}</a>이
+            좋아합니다
           </span>
         </div>
 
         <div className="content">
           <div>
-            <span className="content--user">Shinunge-</span>
-            <span className="content--text">
-              "산책 언제 가냐"는 표정입니다- 🤣🤣🤣
-            </span>
+            <span className="content--user">{userName}</span>
+            <span className="content--text">{content}</span>
           </div>
         </div>
 
