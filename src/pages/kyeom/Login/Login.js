@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
 
@@ -7,7 +7,7 @@ const Form = () => {
     id: '',
     password: '',
   });
-  const btnRef = useRef();
+
   const handleInput = event => {
     const { name, value } = event.target;
     setInputState({
@@ -15,24 +15,20 @@ const Form = () => {
       [name]: value,
     });
   };
-  useEffect(() => {
-    btnRef.current.disabled =
-      String(inputState.id).length < 5 ||
-      String(inputState.password).length < 8;
-  }, [inputState]);
 
   const navigate = useNavigate();
-  const idRef = useRef();
   const handleSubmit = event => {
     event.preventDefault();
-    sessionStorage.setItem('id', idRef.current.value);
+    sessionStorage.setItem('id', inputState.id);
     navigate('/main-Kyeom');
   };
+
+  const isLoginValid =
+    inputState.id.length >= 5 && inputState.password.length >= 8;
 
   return (
     <form name="login" onSubmit={handleSubmit}>
       <input
-        ref={idRef}
         className="id"
         name="id"
         type="text"
@@ -46,7 +42,7 @@ const Form = () => {
         placeholder="비밀번호"
         onInput={handleInput}
       />
-      <button ref={btnRef} className="submit" type="submit" disabled>
+      <button className="submit" type="submit" disabled={!isLoginValid}>
         로그인
       </button>
     </form>
