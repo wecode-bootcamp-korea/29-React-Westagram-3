@@ -19,6 +19,17 @@ const Form = () => {
   const navigate = useNavigate();
   const handleSubmit = event => {
     event.preventDefault();
+
+    // fetch('http://10.58.2.98:8000/users/signin', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     email: inputState.id,
+    //     password: inputState.password,
+    //   }),
+    // })
+    //   .then(res => res.json())
+    //   .then(res => console.log(res));
+
     sessionStorage.setItem('id', inputState.id);
     navigate('/main-Kyeom');
   };
