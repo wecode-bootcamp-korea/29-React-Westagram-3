@@ -17,22 +17,10 @@ aside {
       margin-right: 10px;
     }
   }
-
   .aside-story {
     padding: 15px 20px;
     border: 2px #ebebeb solid;
-
-    .aside-story > p {
-      margin: 10px 0;
-      color: gray;
-    }
-
-    .aside-story-box {
-      display: flex;
-      margin-top: 10px;
-    }
   }
-
   .aside-img {
     width: 40px;
     height: 40px;
@@ -48,15 +36,6 @@ aside {
     margin-top: 20px;
     padding: 15px 20px;
     border: 2px #ebebeb solid;
-
-    .aside-recommendation > p {
-      color: gray;
-    }
-
-    .aside-recommendation-box {
-      display: flex;
-      margin-top: 10px;
-    }
   }
 }
 /* 

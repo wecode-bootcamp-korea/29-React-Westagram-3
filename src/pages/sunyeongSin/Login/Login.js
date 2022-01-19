@@ -3,73 +3,78 @@ import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 function Login() {
-  const [id, setId] = useState('');
-  const [password, setPassword] = useState('');
+  const [inputState, setInputState] = useState({
+    email: '',
+    password: '',
+  });
   const [isValid, setIsValid] = useState(true);
   const navigate = useNavigate();
 
   const changeInfo = e => {
-    if (e.target.className === 'login-id') setId(e.target.value);
-
-    if (e.target.className === 'login-password') setPassword(e.target.value);
+    const { name, value } = e.target;
+    setInputState({
+      ...inputState,
+      [name]: value,
+    });
   };
 
-  useEffect(() => {
-    setIsValid(() => {
-      if (id.length >= 5 && password.length >= 5 && id.includes('@'))
-        return false;
-      else return true;
-    });
-  }, [id, password]);
-
-  useEffect(() => {
-    console.log('로그인 테스트 시작');
-    fetch(
-      'https://cors-anywhere.herokuapp.com/https://westagram-signup.herokuapp.com/signup',
-      {
-        method: 'POST',
-        body: JSON.stringify({
-          email: 'lll',
-          password: 'asdfeasdf',
-        }),
-      }
-    )
-      .then(response => response.json())
-      .then(result => console.log('결과: ', result));
-    console.log('로그인 테스트 끝');
-  }, []);
-
   const login = () => {
-    if (id.length < 5 || !id.includes('@')) {
+    if (inputState.email.length < 5 || !inputState.email.includes('@')) {
       alert('아이디를 정확히 입력하시오.');
       return;
     }
-    if (password.length < 5) {
+    if (inputState.password.length < 5) {
       alert('비밀번호 5자 이상 입력하세요.');
       return;
     }
 
-    //window.location.href = '/main'
-    localStorage.setItem('id', id);
+    localStorage.setItem('email', inputState.email);
+
     navigate('/main-su');
   };
+
+  useEffect(() => {
+    setIsValid(
+      !(
+        inputState.email.length > 1 &&
+        inputState.password.length > 1 &&
+        inputState.email.includes('@')
+      )
+    );
+  }, [inputState]);
+
+  function joinMember() {
+    fetch('http://10.58.4.14:8002/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: 'louk@naver.com',
+        password: 'tlstnsud1234!@#$',
+      }),
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(result => {
+        console.log(result.access_token);
+      });
+  }
 
   return (
     <main className="login-container">
       <div className="logo">westagram</div>
       <input
         type="text"
-        className="login-id"
-        value={id}
+        className="login-email"
         onChange={changeInfo}
         placeholder="전화번호, 사용자 이름 또는 이메일"
+        name="email"
       />
       <input
         type="password"
         className="login-password"
-        value={password}
         onChange={changeInfo}
         placeholder="비밀번호"
+        name="password"
       />
       <button
         className={!isValid ? 'login-button-active' : 'login-button'}
@@ -78,6 +83,7 @@ function Login() {
       >
         로그인
       </button>
+      <button onClick={joinMember}>회원가입</button>
       <div className="forget-password">비밀번호를 잊으셨나요?</div>
     </main>
   );
