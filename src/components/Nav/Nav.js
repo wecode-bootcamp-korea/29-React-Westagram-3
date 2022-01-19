@@ -1,9 +1,6 @@
 import React, { useRef } from 'react';
+import Button from '../Button/Button';
 import './Nav.scss';
-
-const Button = ({ className, src, alt }) => {
-  return <input type="image" className={className} src={src} alt={alt} />;
-};
 
 const buttonData = [
   {
@@ -65,5 +62,4 @@ const Nav = () => {
   );
 };
 
-export { Button };
 export default Nav;
