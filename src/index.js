@@ -5,8 +5,8 @@ import './styles/common.scss';
 import './styles/reset.scss';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <Router />,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
