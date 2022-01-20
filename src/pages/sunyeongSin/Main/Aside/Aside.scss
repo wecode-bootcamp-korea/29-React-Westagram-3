@@ -1,4 +1,4 @@
-aside {
+.aside {
   position: fixed;
   width: 20%;
   top: 10vh;
@@ -36,6 +36,12 @@ aside {
     margin-top: 20px;
     padding: 15px 20px;
     border: 2px #ebebeb solid;
+  }
+
+  .unvisible {
+    display: none;
+  }
+  .visible {
   }
 }
 /* 

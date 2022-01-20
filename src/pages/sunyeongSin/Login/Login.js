@@ -54,9 +54,7 @@ function Login() {
       .then(response => {
         return response.json();
       })
-      .then(result => {
-        console.log(result.access_token);
-      });
+      .then(result => result.access_token);
   }
 
   return (

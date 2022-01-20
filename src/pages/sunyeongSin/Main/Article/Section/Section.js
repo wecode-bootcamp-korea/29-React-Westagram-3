@@ -9,26 +9,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Comment from './Comment/Comment';
 
-const Section = ({ userName, userImg, feedImg, content }) => {
+const Section = ({ comments, userName, userImg, feedImg, content }) => {
   const [comment, setComment] = useState('');
 
-  const [key, setKey] = useState(2);
+  const [key, setKey] = useState(4);
 
-  const [commentList, setCommentList] = useState([]);
+  const [commentBox, setCommentBox] = useState(comments);
 
-  const [commentBox, setCommentBox] = useState([
-    { key: 1, comment: '재미있네~' },
-  ]);
-
-  useEffect(() => {
-    fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        setCommentList(data);
-      });
-  }, []);
+  console.log('commentBox');
+  console.log(commentBox);
 
   const changeComment = e => {
     setComment(e.target.value);
@@ -96,9 +85,6 @@ const Section = ({ userName, userImg, feedImg, content }) => {
       </div>
 
       <div className="feed-comment-box">
-        {commentList.map(e => (
-          <Comment key={e.id} comment={e.content} name={e.userName} />
-        ))}
         {commentBox.map(e => {
           console.log(e);
           // 왜 계속 랜더링 될까 일부러 뒀습니다

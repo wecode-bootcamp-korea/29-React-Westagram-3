@@ -11,11 +11,11 @@ const Comment = ({ data, comment, remove, name }) => {
     <div className="feed-comment">
       <span>
         <span>
-          <strong>{name ? name : localStorage.getItem('id')}</strong> {comment}
+          <strong>{name || localStorage.getItem('id')}</strong> {comment}
         </span>
         <div>
           <FontAwesomeIcon
-            className={!isLike ? '' : 'isLike'}
+            className={isLike ? 'isLike' : ''}
             icon={faHeart}
             onClick={() => setIsLike(!isLike)}
           />

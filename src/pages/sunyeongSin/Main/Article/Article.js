@@ -5,8 +5,9 @@ import Section from './Section/Section';
 
 const Article = () => {
   const [feedList, setFeedList] = useState([]);
+  const [comments, setComments] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:3000/data/feedData.json', {
+    fetch('/data/feedData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -15,15 +16,26 @@ const Article = () => {
       });
   }, []);
 
+  useEffect(() => {
+    fetch('/data/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        setComments(data);
+      });
+  }, []);
+
   return (
     <article className="article">
-      {feedList.map(e => (
+      {feedList.map(user => (
         <Section
-          key={e.id}
-          userName={e.userName}
-          userImg={e.userImg}
-          feedImg={e.feedImg}
-          content={e.content}
+          key={user.id}
+          comments={comments}
+          userName={user.userName}
+          userImg={user.userImg}
+          feedImg={user.feedImg}
+          content={user.content}
         />
       ))}
     </article>
