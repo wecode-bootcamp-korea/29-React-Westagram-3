@@ -5,40 +5,31 @@ import './Login.scss';
 const LoginJu = props => {
   const navigate = useNavigate();
 
-  // const goToMain = () => {
-  //   navigate('/main-Ju');
-  // };
-
-  // const [inputs, setInputs] = useState({
-  //   name: '',
-  //   nickname: '',
-  // });
-
-  // const { name, nickname } = inputs;
-
-  // const onChange = e => {
-  //   const { name, value } = e.target;
-
-  //   setInputs({
-  //     ...inputs,
-  //     [name]: value,
-  //   });
-  // };
-
-  // const onReset = () => {
-  //   setInputs({
-  //     name: '',
-  //     nickname: '',
-  //   });
-  // };
+  const goToMain = () => {
+    if (email.includes('@') && password.length > 4) {
+      navigate('/main-Ju');
+    } else {
+      alert('가입된 회원이 아닙니다. 다시 입력해주세요.');
+    }
+  };
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const handleIdInput = event => {
     setEmail(event.target.value);
   };
+
   const handlePasswordInput = event => {
     setPassword(event.target.value);
+  };
+
+  const [isActive, setIsActive] = useState(false);
+
+  const isPassedLogin = () => {
+    return email.includes('@') && password.length > 4
+      ? setIsActive(true)
+      : setIsActive(false);
   };
 
   function signUp() {
@@ -52,7 +43,8 @@ const LoginJu = props => {
       .then(res => res.json())
       .then(res => {
         if (res.message === 'SUCCESS') {
-          navigate('/main-Ju');
+          goToMain();
+          // navigate('/main-Ju');
         } else if (res.message === 'INVALID_USER (password)') {
           alert('비밀번호가 틀렸습니다.');
         }
@@ -70,8 +62,8 @@ const LoginJu = props => {
         <div className="id">
           <input
             name="name"
-            // value={name}
             onChange={handleIdInput}
+            onKeyUp={isPassedLogin}
             type="text"
             id="id"
             placeholder="전화번호, 사용자 이름 또는 이메일"
@@ -81,8 +73,8 @@ const LoginJu = props => {
         <div className="pwd">
           <input
             name="nickname"
-            // value={nickname}
             onChange={handlePasswordInput}
+            onKeyUp={isPassedLogin}
             type="password"
             id="psw"
             placeholder="비밀번호"
@@ -90,8 +82,13 @@ const LoginJu = props => {
         </div>
 
         <div className="GoToMainBtn">
-          <button onClick={signUp}>로그인</button>
-          {/* <button onClick={onReset}>로그인</button> */}
+          <button
+            onClick={signUp}
+            className={isActive ? 'active' : 'unActive'}
+            disabled={email === '' || password === '' ? true : false}
+          >
+            로그인
+          </button>
         </div>
 
         <div className="question">
