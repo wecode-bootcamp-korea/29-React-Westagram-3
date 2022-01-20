@@ -1,7 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Article.scss';
 
 const Article = props => {
+  const [comment, setComment] = useState('');
+  const [id, setId] = useState('anonymous');
+  const [ment, setMent] = useState('');
+
+  const handleId = e => {
+    setId(e.target.value);
+  };
+
+  const handleMent = e => {
+    setMent(e.target.value);
+  };
+
+  function addComment() {
+    comment.map(() => {
+      return (
+        <ul className="articleComment2">
+          <li>
+            <span>
+              <span classNames="bold">{handleId}]</span>
+              <span>{handleMent}</span>
+            </span>
+            <i className="far fa-heart" />
+          </li>
+        </ul>
+      );
+    });
+  }
+
   return (
     <article>
       <div className="articleTop">
@@ -9,7 +37,7 @@ const Article = props => {
           <img src="/images/jumiLee/me.jpeg" />
           <span className="bold">jumi_lee98</span>
         </span>
-        <i className="fas fa-ellipsis-h"></i>
+        <i className="fas fa-ellipsis-h" />
       </div>
 
       <img className="articleImg" src="/images/jumiLee/coco.jpeg" />
@@ -20,7 +48,7 @@ const Article = props => {
           <img src="/images/jumiLee/comment.png" />
           <img src="/images/jumiLee/share.png" />
         </span>
-        <i className="far fa-bookmark"></i>
+        <i className="far fa-bookmark" />
       </div>
 
       <div className="articleLikePeople">
@@ -45,16 +73,15 @@ const Article = props => {
               <span className="bold">neceosecius</span>
               <span>저희도 갈푸키워요! 갈푸 최고😍</span>
             </span>
-            <i className="far fa-heart"></i>
+            <i className="far fa-heart" />
           </li>
         </ul>
 
         <div className="articleCommentTime">42분 전</div>
       </div>
-
       <div className="articleCommentPost">
         <input type="text" placeholder="댓글 달기..." />
-        <button>게시</button>
+        <button onClick={addComment}>게시</button>
       </div>
     </article>
   );

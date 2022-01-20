@@ -73,6 +73,14 @@
     text-align: center;
   }
 
+  .active {
+    background-color: #2693ff;
+  }
+
+  .unActive {
+    background-color: #c0dffd;
+  }
+
   .question {
     margin-bottom: 20px;
   }
@@ -83,12 +91,4 @@
     text-decoration: none;
     color: rgb(32, 32, 121);
   }
-}
-
-.active {
-  background-color: #2693ff;
-}
-
-.unActive {
-  background-color: #c0dffd;
 }

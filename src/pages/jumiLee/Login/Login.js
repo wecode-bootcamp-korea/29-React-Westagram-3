@@ -13,24 +13,35 @@ const LoginJu = props => {
     }
   };
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [inputs, setInputs] = useState({
+    email: '',
+    password: '',
+  });
+  const { email, password } = inputs;
 
-  const handleIdInput = event => {
-    setEmail(event.target.value);
+  const handleInput = event => {
+    const { name, value } = event.target;
+
+    setInputs({ ...inputs, [name]: value });
   };
 
-  const handlePasswordInput = event => {
-    setPassword(event.target.value);
-  };
+  // const handleIdInput = event => {
+  //   setEmail(event.target.value);
+  // };
+
+  // const handlePasswordInput = event => {
+  //   setPassword(event.target.value);
+  // };
 
   const [isActive, setIsActive] = useState(false);
 
   const isPassedLogin = () => {
-    return email.includes('@') && password.length > 4
+    return inputs.email.includes('@') && inputs.password.length > 4
       ? setIsActive(true)
       : setIsActive(false);
   };
+
+  // {keyup === 'enter' }
 
   function signUp() {
     fetch('http://10.58.5.6:8000/users/login', {
@@ -61,8 +72,9 @@ const LoginJu = props => {
 
         <div className="id">
           <input
-            name="name"
-            onChange={handleIdInput}
+            name="email"
+            value={email}
+            onChange={handleInput}
             onKeyUp={isPassedLogin}
             type="text"
             id="id"
@@ -72,8 +84,9 @@ const LoginJu = props => {
 
         <div className="pwd">
           <input
-            name="nickname"
-            onChange={handlePasswordInput}
+            name="password"
+            value={password}
+            onChange={handleInput}
             onKeyUp={isPassedLogin}
             type="password"
             id="psw"
@@ -84,6 +97,7 @@ const LoginJu = props => {
         <div className="GoToMainBtn">
           <button
             onClick={signUp}
+            onClick={goToMain}
             className={isActive ? 'active' : 'unActive'}
             disabled={email === '' || password === '' ? true : false}
           >
