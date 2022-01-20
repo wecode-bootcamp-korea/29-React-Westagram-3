@@ -1,0 +1,83 @@
+// * {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+// }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  border-bottom: 1px solid #eaeaea;
+
+  .headerLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 574px;
+  }
+  .fa-instagram {
+    font-size: 25px;
+  }
+
+  .sectionLine {
+    font-size: 30px;
+    font-weight: lighter;
+  }
+
+  .logoFont {
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+  }
+
+  .headerLogo {
+    .sectionLine {
+      margin: 0 10px;
+    }
+  }
+
+  .headerSearchBar {
+    width: 470px;
+  }
+
+  input {
+    width: 220px;
+    height: 32px;
+    border: 1px solid #dfdfdf;
+    background-color: #fafafa;
+    border-radius: 3px;
+    text-align: center;
+    outline: none;
+  }
+
+  .headerSearchBar {
+    input::placeholder {
+      background-image: url(https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-256.png);
+      background-size: contain;
+      background-position: 80px;
+      background-repeat: no-repeat;
+      margin-right: -20px;
+    }
+  }
+
+  .headerIcon {
+    display: flex;
+    align-items: center;
+    width: 278px;
+  }
+
+  .headerIcon {
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .iconHeart {
+    margin: 0 20px;
+  }
+}

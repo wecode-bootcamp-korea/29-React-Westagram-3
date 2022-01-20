@@ -1,0 +1,94 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .loginBox {
+    background-color: white;
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  h1 {
+    width: 350px;
+    padding: 40px;
+    font-size: 50px;
+    text-align: center;
+  }
+
+  .westagramLogo {
+    font-size: 50px;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+  }
+
+  input {
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid lightgray;
+    background-color: #fafafa;
+    padding: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
+
+    &::placeholder {
+      text-align: center;
+    }
+  }
+  /* 같은 width길이를 맞춘건데 다를 수 있나? 전체에 속성도 줬는데
+자바랑 너무 다른것 같음  클래스 준 인풋에 적용하면 같아짐 이거뭐지..*/
+
+  .id {
+    input {
+      margin-top: 30px;
+      margin-bottom: 7px;
+      width: 300px;
+      height: 40px;
+    }
+  }
+
+  .pwd {
+    input {
+      margin-bottom: 20px;
+      width: 300px;
+      width: 300px;
+      height: 40px;
+    }
+  }
+
+  button {
+    width: 300px;
+    height: 45px;
+    border-radius: 3px;
+    outline: none;
+    background-color: #c0dffd;
+    border: 0;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 100px;
+    text-align: center;
+  }
+
+  .active {
+    background-color: #2693ff;
+  }
+
+  .unActive {
+    background-color: #c0dffd;
+  }
+
+  .question {
+    margin-bottom: 20px;
+  }
+
+  a {
+    margin-top: 100px;
+    font-size: 12px;
+    text-decoration: none;
+    color: rgb(32, 32, 121);
+  }
+}

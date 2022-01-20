@@ -1,0 +1,75 @@
+// * {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+// }
+
+.recommend::-webkit-scrollbar {
+  display: none;
+}
+
+.recommend {
+  width: 300px;
+  height: 200px;
+  border-top: none;
+  border: 1px solid #dfdfdf;
+  margin-top: 15px;
+  background-color: white;
+  overflow: auto;
+  margin-bottom: 20px;
+
+  .recommendHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+    font-size: 14px;
+    width: 300px;
+    height: 30px;
+    background-color: white;
+    font-size: 14px;
+  }
+
+  .recommendBox {
+    margin-left: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    img {
+      width: 45px;
+      height: 45px;
+      border-radius: 100px;
+      margin-right: 10px;
+    }
+  }
+
+  .recommendAccount {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 160px;
+    margin-right: 10px;
+    .light {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  .followColor {
+    color: #0d96f7;
+    /* margin-top: 16px;
+  margin-right: 13px; */
+  }
+
+  .bold {
+    font-weight: bolder;
+  }
+
+  .light {
+    color: gray;
+  }
+}

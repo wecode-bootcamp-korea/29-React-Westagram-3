@@ -1,0 +1,31 @@
+// * {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+// }
+
+.articleRightAccount {
+  display: flex;
+  margin-left: 12px;
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+  .accountRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5px;
+  }
+
+  .bold {
+    font-weight: bolder;
+  }
+
+  .light {
+    color: gray;
+  }
+}
