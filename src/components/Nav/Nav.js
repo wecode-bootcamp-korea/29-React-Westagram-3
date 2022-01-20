@@ -1,23 +1,22 @@
 import React, { useRef } from 'react';
+import Button from '../Button/Button';
 import './Nav.scss';
-import '../../styles/variables.scss';
-
-const Button = ({ className, src, alt }) => {
-  return <input type="image" className={className} src={src} alt={alt} />;
-};
 
 const buttonData = [
   {
+    id: 1,
     className: 'menu',
     alt: 'explore button',
     src: 'https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png',
   },
   {
+    id: 2,
     className: 'menu',
     alt: 'heart button',
     src: 'https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png',
   },
   {
+    id: 3,
     className: 'menu',
     alt: 'profile button',
     src: 'https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png',
@@ -27,10 +26,10 @@ const buttonData = [
 const Nav = () => {
   const iRef = useRef();
   const onFocus = () => {
-    iRef.current.style.display = 'none';
+    iRef.current.className = 'fas fa-search hidden';
   };
   const onBlur = () => {
-    iRef.current.style.display = 'inline-block';
+    iRef.current.className = 'fas fa-search';
   };
 
   return (
@@ -53,7 +52,7 @@ const Nav = () => {
                 className={data.className}
                 alt={data.alt}
                 src={data.src}
-                key={data.alt}
+                key={data.id}
               />
             ))}
           </div>
@@ -63,5 +62,4 @@ const Nav = () => {
   );
 };
 
-export { Button };
 export default Nav;
