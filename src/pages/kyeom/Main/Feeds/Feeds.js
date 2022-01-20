@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Button } from '../../../../components/Nav/Nav';
+import Button from '../../../../components/Button/Button';
 import Comment from '../Comment/Comment';
 import './Feeds.scss';
 
