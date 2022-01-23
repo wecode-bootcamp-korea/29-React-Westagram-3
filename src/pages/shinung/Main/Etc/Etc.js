@@ -1,7 +1,7 @@
 import React from 'react';
 import './Etc.scss';
 
-const Etc = props => {
+const Etc = () => {
   return (
     <div className="company">
       <p className="etc">

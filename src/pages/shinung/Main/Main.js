@@ -3,12 +3,12 @@ import Nav from '../../../components/Nav/Nav';
 import User from './User/User';
 import Etc from './Etc/Etc';
 import Footer from './Footer/Footer';
-import Story from './Story/Story';
-import Suggestion from './Suggestion/Suggestion';
+import Stories from './Story/Stories';
+import SuggestionList from './Suggestion/SuggestionList';
 import FeedList from './Feed/FeedList';
 import './Main.scss';
 
-const MainShinung = props => {
+const MainShinung = () => {
   return (
     <>
       <Nav />
@@ -18,8 +18,8 @@ const MainShinung = props => {
         </div>
         <div className="main-right">
           <User />
-          <Story />
-          <Suggestion />
+          <Stories />
+          <SuggestionList />
           <Etc />
         </div>
       </main>

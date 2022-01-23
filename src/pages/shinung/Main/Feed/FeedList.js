@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Feed from './Feed';
 
-const FeedList = props => {
+const FeedList = () => {
   const [feeds, setFeeds] = useState([]);
 
   useEffect(() => {
@@ -13,18 +13,7 @@ const FeedList = props => {
   return (
     <>
       {feeds.map((feed, idx) => (
-        <Feed
-          key={idx}
-          id={feed.id}
-          userName={feed.userName}
-          userImage={feed.userImage}
-          feedImage={feed.feedImage}
-          isLiked={feed.isLiked}
-          howmanyImage={feed.howmanyImage}
-          howmanyUser={feed.howmanyUser}
-          howmany={feed.howmany}
-          content={feed.content}
-        />
+        <Feed key={idx} feed={feed} />
       ))}
     </>
   );

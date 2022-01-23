@@ -1,16 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './Feed.scss';
 
-const Feed = ({
-  userName,
-  userImage,
-  feedImage,
-  isLiked,
-  howmanyImage,
-  howmanyUser,
-  howmany,
-  content,
-}) => {
+const Feed = ({ feed }) => {
   useEffect(() => {
     fetch('http://localhost:3000/data/commentData.json')
       .then(res => res.json())
@@ -53,12 +44,12 @@ const Feed = ({
       <article className="feed">
         <div className="feed-user">
           <div className="user-info">
-            <img alt="profile" src={userImage} className="user-profile" />
-            <span className="user-name">{userName}</span>
+            <img alt="profile" src={feed.userImage} className="user-profile" />
+            <span className="user-name">{feed.userName}</span>
           </div>
           <img alt="etc" src="/images/shinung/etc.png" className="feed-etc" />
         </div>
-        <img alt="feedImage" src={feedImage} className="feedImage" />
+        <img alt="feedImage" src={feed.feedImage} className="feedImage" />
         <div className="evaluation">
           <div>
             <img alt="like" src="./images/shinung/like.png" />
@@ -72,17 +63,17 @@ const Feed = ({
           />
         </div>
         <div className="howmany">
-          <img alt="apple" src={howmanyImage} />
+          <img alt="apple" src={feed.howmanyImage} />
           <p className="howmany-text">
-            <a href="">{howmanyUser}</a>님 <a href="">외 {howmany}</a>이
-            좋아합니다
+            <a href="">{feed.howmanyUser}</a>님 <a href="">외 {feed.howmany}</a>
+            이 좋아합니다
           </p>
         </div>
 
         <div className="content">
           <div>
-            <span className="content-user">{userName}</span>
-            <span className="content-text">{content}</span>
+            <span className="content-user">{feed.userName}</span>
+            <span className="content-text">{feed.content}</span>
           </div>
         </div>
 
@@ -90,11 +81,8 @@ const Feed = ({
           {comments.map((comment, idx) => (
             <Comments
               key={idx}
-              id={comment.id}
-              name={comment.userName}
-              comment={comment.content}
+              comment={comment}
               handleLike={handleLike}
-              like={like}
               onRemove={onRemove}
             />
           ))}
@@ -117,17 +105,17 @@ const Feed = ({
   );
 };
 
-function Comments({ id, name, comment, handleLike, like, onRemove }) {
+function Comments({ comment, handleLike, onRemove }) {
   return (
     <li className="comment">
       <div>
-        <p className="comment-user">{name}</p>
-        <p className="comment-text">{comment}</p>
-        <p className="comment-delete" onClick={() => onRemove(id)}>
+        <p className="comment-user">{comment.userName}</p>
+        <p className="comment-text">{comment.content}</p>
+        <p className="comment-delete" onClick={() => onRemove(comment.id)}>
           삭제
         </p>
       </div>
-      {like ? (
+      {comment.like ? (
         <i className="fas fa-heart liked" onClick={handleLike} />
       ) : (
         <i className="far fa-heart like" onClick={handleLike} />

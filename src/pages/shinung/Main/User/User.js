@@ -1,7 +1,7 @@
 import React from 'react';
 import './User.scss';
 
-const User = props => {
+const User = () => {
   return (
     <div className="right">
       <img alt="profile" src="/images/shinung/profile.jpeg" />

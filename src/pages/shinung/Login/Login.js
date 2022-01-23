@@ -84,7 +84,7 @@ const LoginShinung = () => {
           <div className="signin">
             <p>
               계정이 없으신가요?
-              <a href=""> 가입하기</a>
+              <a href="/"> 가입하기</a>
             </p>
           </div>
 
